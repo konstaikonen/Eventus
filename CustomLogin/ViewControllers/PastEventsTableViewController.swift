@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
 class PastEventsTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
@@ -19,19 +22,8 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
         self.tableView.reloadData()
     }
     
-    let tableData = ["One",
-                     "Two",
-                     "Three",
-                     "Twenty-One",
-                     "Twenty-One",
-                     "Twenty-One",
-                     "Twenty-One",
-                     "Twenty-One",
-                     "Twenty-One",
-                     "Twenty-One",
-                     "Twenty-One",
-                     "Twenty-One"
-    ]
+    var tableData = [String]()
+    var userCollectionRef: CollectionReference!
     
     var filteredTableData = [String]()
     var resultSearchController = UISearchController()
@@ -46,6 +38,34 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
                 tableView.tableHeaderView = controller.searchBar
                 return controller
             })()
+        
+        // add progress indicator
+               let activityIndicatorView = UIActivityIndicatorView()
+               activityIndicatorView.hidesWhenStopped = true
+               view.addSubview(activityIndicatorView)
+               activityIndicatorView.center = view.center
+               activityIndicatorView.startAnimating()
+               
+               userCollectionRef = Firestore.firestore().collection("events")
+               userCollectionRef.getDocuments { (snapshot, error) in
+                   if let error = error{
+                       debugPrint("Eror se vraca")
+                   }else{
+                       guard let snap = snapshot else { return }
+                       for document in snap.documents{
+                               
+                           let data = document.data()
+                           let name = data["name"] as? String ?? "Anonymous"
+                           self.tableData.append(name)
+                           print(name)
+                       }
+                       //print(self.futureEvents.count)
+                       
+                       // hide progress view
+                       self.tableView.reloadData()
+                       activityIndicatorView.stopAnimating()
+                   }
+               }
             // Reload the table
             tableView.reloadData()
         }
