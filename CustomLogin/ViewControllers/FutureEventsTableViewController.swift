@@ -75,7 +75,6 @@ class FutureEventsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellE", for: indexPath)
     
         let(events) = futureEvents [indexPath.row]
-        print(futureEvents.count)
         cell.textLabel?.text = events
         
         return cell

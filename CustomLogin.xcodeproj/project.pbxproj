@@ -18,6 +18,7 @@
 		2C046816237460CF0053B6E6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C046815237460CF0053B6E6 /* HomeViewController.swift */; };
 		2C3ABCF323747FA100DE7F2C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3ABCF223747FA100DE7F2C /* Constants.swift */; };
 		2C4354B723746D9E00C89D13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C4354B623746D9E00C89D13 /* GoogleService-Info.plist */; };
+		2CD55C6F238ECC6500040109 /* addEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD55C6E238ECC6500040109 /* addEventViewController.swift */; };
 		2CFF7D56238573DE009CEAE0 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF7D55238573DE009CEAE0 /* CurrentUser.swift */; };
 		361C777BFD18B8999356A1DE /* Pods_CustomLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A8957BA74AB370B07DFA29 /* Pods_CustomLogin.framework */; };
 		5A176426237ED11B00F6066B /* PastEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A176425237ED11B00F6066B /* PastEventsTableViewController.swift */; };
@@ -43,6 +44,7 @@
 		2C046815237460CF0053B6E6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2C3ABCF223747FA100DE7F2C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2C4354B623746D9E00C89D13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2CD55C6E238ECC6500040109 /* addEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addEventViewController.swift; sourceTree = "<group>"; };
 		2CFF7D55238573DE009CEAE0 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		5A176425237ED11B00F6066B /* PastEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastEventsTableViewController.swift; sourceTree = "<group>"; };
 		5A503C1123840C3A0040CAE0 /* FutureEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureEventsTableViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				5A6C7D65237DA5A900890947 /* EventInfoViewController.swift */,
 				5A176425237ED11B00F6066B /* PastEventsTableViewController.swift */,
 				5A503C1123840C3A0040CAE0 /* FutureEventsTableViewController.swift */,
+				2CD55C6E238ECC6500040109 /* addEventViewController.swift */,
 				5AFDE69C238418BC009DA24D /* LeaderBoardTableViewController.swift */,
 				5AFDE69E23842072009DA24D /* ProfileViewController.swift */,
 				2CFF7D55238573DE009CEAE0 /* CurrentUser.swift */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A99BD6D23858727001EB316 /* AppData.swift in Sources */,
+				2CD55C6F238ECC6500040109 /* addEventViewController.swift in Sources */,
 				5A6C7D66237DA5A900890947 /* EventInfoViewController.swift in Sources */,
 				5A99FE4B23749B0F00C08FD1 /* TabBarViewController.swift in Sources */,
 				5A176426237ED11B00F6066B /* PastEventsTableViewController.swift in Sources */,
