@@ -34,9 +34,11 @@ class addEventViewController: UIViewController {
 
     
     override func viewDidLoad() {
+        getCurrentTime()
         super.viewDidLoad()
         
             startDateAndTime.inputView = datePicker
+        
 
         // Do any additional setup after loading the view.
     }
@@ -65,9 +67,9 @@ class addEventViewController: UIViewController {
     @IBAction func saveButton(_ sender: Any) {
         let eventName = eventNameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let eventDescription = eventDescriptionLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
+        let eventTime = startDateAndTime.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let db = Firestore.firestore()
-        db.collection("events").addDocument(data: ["name":eventName,"description":eventDescription])
+        db.collection("events").addDocument(data: ["name":eventName,"description":eventDescription,"date":eventTime])
         //Transition to home screen
         self.transitionToHome()
     }
@@ -84,4 +86,12 @@ class addEventViewController: UIViewController {
            //self.performSegue(withIdentifier: "loginToProfile", sender: self)
            
        }
+    
+    func getCurrentTime(){
+        let format = DateFormatter()
+        format.dateFormat = "MM-dd-yyyy' 'HH:mm"
+        let date = Date()
+        let formattedDate = format.string(from: date)
+        print(formattedDate)
+    }
 }
