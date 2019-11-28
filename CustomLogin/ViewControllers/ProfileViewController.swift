@@ -19,11 +19,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var trenutniKorisnik = [CurrentUser]()
     var userCollectionRef: CollectionReference!
     
+    
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var firstnameLabel: UILabel!
     @IBOutlet weak var lastnameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var detailsStack: UIStackView!
     
-  
     
     
     override func viewDidLoad() {
