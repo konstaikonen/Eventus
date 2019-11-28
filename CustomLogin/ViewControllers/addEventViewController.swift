@@ -34,7 +34,6 @@ class addEventViewController: UIViewController {
 
     
     override func viewDidLoad() {
-        getCurrentTime()
         super.viewDidLoad()
         
             startDateAndTime.inputView = datePicker
@@ -87,11 +86,5 @@ class addEventViewController: UIViewController {
            
        }
     
-    func getCurrentTime(){
-        let format = DateFormatter()
-        format.dateFormat = "MM-dd-yyyy' 'HH:mm"
-        let date = Date()
-        let formattedDate = format.string(from: date)
-        print(formattedDate)
-    }
+    
 }
