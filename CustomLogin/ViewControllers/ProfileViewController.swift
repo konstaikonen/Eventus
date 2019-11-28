@@ -66,16 +66,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 for document in snap.documents{
                     
                     let data = document.data()
-                    let username = data["firstname"] as? String ?? "Anonymous"
+                    let firstName = data["firstname"] as? String ?? "Anonymous"
                     let lastname = data["lastname"] as? String ?? "Anonymous"
+                    let username = data["username"] as? String ?? "Anonymous"
                     let emailBaza = data["email"] as? String ?? "Anonymous"
                     if email == emailBaza {
-                        let korisnik = CurrentUser(firstName: username, lastName: lastname, email: email)
+                        let korisnik = CurrentUser(firstName: firstName, lastName: lastname,username: username, email: email)
                         self.trenutniKorisnik.append(korisnik)
                     }
                 }
                 self.emailLabel.text = self.trenutniKorisnik[0].email
                 self.firstnameLabel.text = self.trenutniKorisnik[0].firstName
+                self.usernameLabel.text = self.trenutniKorisnik[0].username
                 self.lastnameLabel.text = self.trenutniKorisnik[0].lastName
                 
             }

@@ -16,6 +16,7 @@ class addEventViewController: UIViewController {
     @IBOutlet weak var eventNameLabel: UITextField!
     @IBOutlet weak var eventDescriptionLabel: UITextField!
     
+    @IBOutlet weak var hostnameLabel: UILabel!
     @IBOutlet weak var startDateAndTime: UITextField!
 
     
@@ -35,7 +36,7 @@ class addEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        hostnameLabel.text = AppData.shared.name
             startDateAndTime.inputView = datePicker
         
 

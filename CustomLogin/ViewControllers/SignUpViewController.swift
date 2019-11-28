@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UITextField!
     
     var pomocniEmail:String = ""
     
@@ -35,7 +36,7 @@ class SignUpViewController: UIViewController {
     func validateFields() -> String?{
         
         //Check that al fields are filled in
-        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""||passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""{
+        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""||passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" || usernameLabel.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""{
             
             return "Please fill in all fields."
         }
@@ -66,6 +67,7 @@ class SignUpViewController: UIViewController {
             
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let username = usernameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             
             //Create the user
@@ -75,7 +77,7 @@ class SignUpViewController: UIViewController {
                 }else{
                     self.pomocniEmail = email
                     let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["firstname":firstName,"email":email,"lastname":lastName,"uid":result!.user.uid]) { (error) in
+                    db.collection("users").addDocument(data: ["firstname":firstName,"email":email,"username":username,"lastname":lastName,"uid":result!.user.uid]) { (error) in
                         
                         if error != nil{
                             self.showError("Error saving user data")

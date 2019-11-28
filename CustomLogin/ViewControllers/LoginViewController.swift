@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 import FirebaseAuth
+
 
 class LoginViewController: UIViewController {
 
@@ -16,6 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+     var userCollectionRef: CollectionReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +56,30 @@ class LoginViewController: UIViewController {
                 self.errorLabel.alpha = 1
             }else{
                 
+                self.userCollectionRef = Firestore.firestore().collection("users")
+                self.userCollectionRef.getDocuments { (snapshot, error) in
+                           if let error = error{
+                               debugPrint("Eror se vraca")
+                           }else{
+                               guard let snap = snapshot else { return }
+                               for document in snap.documents{
+                                   
+                                   let data = document.data()
+                                   let firstName = data["firstname"] as? String ?? "Anonymous"
+                                   let lastname = data["lastname"] as? String ?? "Anonymous"
+                                   let username = data["username"] as? String ?? "Anonymous"
+                                   let emailBaza = data["email"] as? String ?? "Anonymous"
+                                   if email == emailBaza {
+                                       AppData.shared.profileEmail = email
+                                    AppData.shared.name = firstName
+                                    AppData.shared.surname =  lastname
+                            }
+                        }
+                    }
+                }
+            }
+        
+                
                 let tabBarViewController = self.storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabBarViewController) as? TabBarViewController
                 
                 AppData.shared.profileEmail = email
@@ -66,7 +94,7 @@ class LoginViewController: UIViewController {
             }
         }
         
-    }
+}
     
 
-}
+
