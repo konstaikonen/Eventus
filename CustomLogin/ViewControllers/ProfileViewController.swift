@@ -28,13 +28,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
+        //modify stack view
+        self.detailsStack.backgroundColor = .systemOrange
+        self.detailsStack.layer.cornerRadius = self.detailsStack.frame.width/2.0
+        self.detailsStack.clipsToBounds = true
         
         //modify profile picture
         self.photoImageView.layer.cornerRadius = self.photoImageView.frame.width/2.0
         self.photoImageView.clipsToBounds = true
         
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
