@@ -41,8 +41,17 @@ class FutureEventsTableViewController: UITableViewController {
                         
                     let data = document.data()
                     let name = data["name"] as? String ?? "Anonymous"
-                    self.futureEvents.append(name)
-                    print(name)
+                    let datum = data["date"] as? String ?? "Anonymous"
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "MM-dd-yyyy' 'HH:mm"
+                    let datumDateType = formatter.date(from: datum)
+                    let danasnjiDatumDateType = formatter.date(from: self.getCurrentTime())
+                    
+                    if datumDateType?.compare(danasnjiDatumDateType!) == .orderedDescending{
+                        self.futureEvents.append(name)
+                        print(name)
+                    }
+                    
                 }
                 //print(self.futureEvents.count)
                 
@@ -126,5 +135,13 @@ class FutureEventsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func getCurrentTime() -> String{
+        let format = DateFormatter()
+        format.dateFormat = "MM-dd-yyyy' 'HH:mm"
+        let date = Date()
+        let formattedDate = format.string(from: date)
+        return formattedDate
+    }
 
 }
