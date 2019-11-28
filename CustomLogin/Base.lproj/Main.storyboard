@@ -660,6 +660,7 @@
                     <connections>
                         <outlet property="eventDescriptionLabel" destination="N6Q-g6-cn4" id="n9z-Dy-upG"/>
                         <outlet property="eventNameLabel" destination="sfD-7o-cNb" id="jHo-6g-vfg"/>
+                        <outlet property="hostnameLabel" destination="Yd9-6L-5OT" id="6si-uh-kjS"/>
                         <outlet property="startDateAndTime" destination="Uin-ve-FsX" id="kTp-QA-609"/>
                     </connections>
                 </viewController>
