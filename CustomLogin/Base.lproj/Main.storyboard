@@ -87,22 +87,22 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0zW-ir-cZz">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q7E-mH-jkt">
                                         <rect key="frame" x="0.0" y="70" width="355" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="family-name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2kf-UO-1Lz">
                                         <rect key="frame" x="0.0" y="140" width="355" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gfg-bi-2wF">
                                         <rect key="frame" x="0.0" y="210" width="355" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJ9-yx-eha">
                                         <rect key="frame" x="0.0" y="280" width="355" height="50"/>
@@ -193,12 +193,12 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o87-Pb-9LC" userLabel="EmailTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WWU-X8-UOH">
                                         <rect key="frame" x="0.0" y="70" width="355" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Det-c0-oKw">
                                         <rect key="frame" x="0.0" y="140" width="355" height="50"/>
@@ -306,9 +306,6 @@
                                 <rect key="frame" x="127" y="124" width="120" height="120"/>
                                 <color key="backgroundColor" red="0.21685737371444702" green="0.58646887540817261" blue="0.51364028453826904" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="15"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="QeD-rL-JWZ" appends="YES" id="i00-kj-xBt"/>
                                 </connections>
@@ -362,7 +359,6 @@
                                 </subviews>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="15"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
                         </subviews>
@@ -372,13 +368,13 @@
                             <constraint firstItem="SbC-1w-XFc" firstAttribute="leading" secondItem="vYp-AW-uz4" secondAttribute="leading" constant="40" id="KAY-B5-CVa"/>
                             <constraint firstItem="vYp-AW-uz4" firstAttribute="bottom" secondItem="d9g-Ad-yUr" secondAttribute="bottom" constant="485" id="KBQ-O9-nxO"/>
                             <constraint firstItem="vYp-AW-uz4" firstAttribute="bottom" secondItem="SbC-1w-XFc" secondAttribute="bottom" constant="313" id="KLf-d1-FEf"/>
-                            <constraint firstItem="sZF-rm-fcE" firstAttribute="top" secondItem="d9g-Ad-yUr" secondAttribute="bottom" constant="17.666666666666686" id="OFx-UC-YrT"/>
                             <constraint firstItem="vYp-AW-uz4" firstAttribute="trailing" secondItem="d9g-Ad-yUr" secondAttribute="trailing" constant="128" id="Sbq-lH-S3H"/>
                             <constraint firstItem="vYp-AW-uz4" firstAttribute="trailing" secondItem="sZF-rm-fcE" secondAttribute="trailing" constant="16" id="TMb-ug-MAq"/>
                             <constraint firstItem="sZF-rm-fcE" firstAttribute="leading" secondItem="vYp-AW-uz4" secondAttribute="leading" constant="16" id="WQu-lC-nGa"/>
                             <constraint firstItem="d9g-Ad-yUr" firstAttribute="leading" secondItem="vYp-AW-uz4" secondAttribute="leading" constant="127" id="YP0-CJ-Qd7"/>
                             <constraint firstItem="vYp-AW-uz4" firstAttribute="trailing" secondItem="SbC-1w-XFc" secondAttribute="trailing" constant="40" id="nyP-dG-uQL"/>
                             <constraint firstItem="SbC-1w-XFc" firstAttribute="top" secondItem="sZF-rm-fcE" secondAttribute="bottom" constant="33" id="qrA-Rn-kzu"/>
+                            <constraint firstItem="sZF-rm-fcE" firstAttribute="top" secondItem="d9g-Ad-yUr" secondAttribute="bottom" constant="17.666666666666686" id="zxd-QJ-4dv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vYp-AW-uz4"/>
                     </view>

@@ -26,15 +26,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var detailsStack: UIStackView!
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        
+        //modify profile picture
+        self.photoImageView.layer.cornerRadius = self.photoImageView.frame.width/2.0
+        self.photoImageView.clipsToBounds = true
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         userCollectionRef = Firestore.firestore().collection("users")
-        self.photoImageView.layer.cornerRadius = self.photoImageView.frame.width/4.0
-        self.photoImageView.clipsToBounds = true
+   
 
     }
 
