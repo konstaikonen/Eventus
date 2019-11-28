@@ -25,13 +25,20 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var lastnameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var detailsStack: UIStackView!
+    @IBOutlet weak var backgroundStack: UIImageView!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         
         //modify stack view
-        self.detailsStack.backgroundColor = .systemOrange
-        self.detailsStack.layer.cornerRadius = self.detailsStack.frame.width/2.0
-        self.detailsStack.clipsToBounds = true
+    self.backgroundStack.layer.cornerRadius = self.detailsStack.frame.width/50.0
+        self.backgroundStack.clipsToBounds = true
+        self.backgroundStack.layer.shadowColor = UIColor.gray.cgColor
+        self.backgroundStack.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.backgroundStack.layer.shadowOpacity = 1
+        self.backgroundStack.layer.shadowRadius = 5
+        self.backgroundStack.clipsToBounds = false
+        
         
         //modify profile picture
         self.photoImageView.layer.cornerRadius = self.photoImageView.frame.width/2.0
