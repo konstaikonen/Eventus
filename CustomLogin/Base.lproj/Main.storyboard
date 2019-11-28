@@ -79,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signinbeer" translatesAutoresizingMaskIntoConstraints="NO" id="su6-pU-PAS">
-                                <rect key="frame" x="0.0" y="122" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="122" width="375.00000000000011" height="690"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-J4-PbX">
                                 <rect key="frame" x="10" y="142" width="355" height="636"/>
