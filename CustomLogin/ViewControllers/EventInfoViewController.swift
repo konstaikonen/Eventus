@@ -9,9 +9,15 @@
 import UIKit
 
 class EventInfoViewController: UIViewController {
+    @IBOutlet weak var evenNameLabel: UILabel!
+    var name = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("one")
+        print(name)
+        print("two")
+        
     }
     
 

@@ -11,8 +11,11 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
+var selectedRow = 1
+
 class FutureEventsTableViewController: UITableViewController {
 
+    var finalName = "Patrik"
     
     var userCollectionRef: CollectionReference!
     var futureEvents = [String]()
@@ -91,12 +94,20 @@ class FutureEventsTableViewController: UITableViewController {
  
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        selectedRow = indexPath.row
+        performSegue(withIdentifier: "showdetail", sender: self)
     }
+    
+
 
     
     
+    func prepareForSegue(segue: UIStoryboardSegue, sender: Any?) {
+                let vc = segue.destination as! EventInfoViewController
+                vc.name = self.finalName
+        }
     
 
     /*

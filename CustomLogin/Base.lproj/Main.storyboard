@@ -79,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signinbeer" translatesAutoresizingMaskIntoConstraints="NO" id="su6-pU-PAS">
-                                <rect key="frame" x="0.0" y="122" width="375.00000000000011" height="690"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="690"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-J4-PbX">
                                 <rect key="frame" x="10" y="142" width="355" height="636"/>
@@ -316,10 +316,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xxA-8W-0y6">
                                         <rect key="frame" x="0.0" y="0.0" width="106.33333333333333" height="20.333333333333332"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VB4-QN-0ra">
-                                                <rect key="frame" x="0.0" y="0.99999999999999822" width="19.666666666666668" height="19"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VB4-QN-0ra">
+                                                <rect key="frame" x="0.0" y="0.99999999999999822" width="19.666666666666668" height="19.333333333333329"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZF-rm-fcE">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZF-rm-fcE">
                                                 <rect key="frame" x="27.666666666666664" y="0.0" width="78.666666666666686" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.92868429419999998" green="0.96228104830000005" blue="0.88332492110000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -328,11 +328,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5Dv-Ev-snU">
-
-                                        <rect key="frame" x="0.0" y="40.333333333333314" width="104.33333333333333" height="20.333333333333329"/>
-
-                                       
-
+                                        <rect key="frame" x="0.0" y="40.333333333333314" width="104.66666666666667" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cIP-Da-Dov">
                                                 <rect key="frame" x="0.0" y="1.6666666666666661" width="19" height="18"/>
@@ -347,9 +343,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="A61-Oy-jBf">
-
-                                        <rect key="frame" x="0.0" y="80.666666666666629" width="103.66666666666667" height="20.333333333333329"/>
-
+                                        <rect key="frame" x="0.0" y="80.666666666666629" width="104" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5SB-KV-Uky">
                                                 <rect key="frame" x="0.0" y="1.6666666666666661" width="19" height="18"/>
@@ -363,10 +357,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hpP-XP-9Gg">
-
-                                        <rect key="frame" x="0.0" y="120.99999999999999" width="69.333333333333329" height="20.333333333333329"/>
-
-
+                                        <rect key="frame" x="0.0" y="120.99999999999999" width="69.666666666666671" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1Md-H6-eY3">
                                                 <rect key="frame" x="0.0" y="2.3333333333333321" width="22.666666666666668" height="16.666666666666668"/>
@@ -488,7 +479,7 @@
         <!--Event Info-->
         <scene sceneID="PDz-9p-YCR">
             <objects>
-                <viewController title="Event Info" id="FUB-ju-rcH" sceneMemberID="viewController">
+                <viewController title="Event Info" id="FUB-ju-rcH" customClass="EventInfoViewController" customModule="CustomLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qd9-Mx-02A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -590,6 +581,9 @@
                         <viewLayoutGuide key="safeArea" id="W7B-wJ-9Xg"/>
                     </view>
                     <navigationItem key="navigationItem" id="gyh-z8-qeS"/>
+                    <connections>
+                        <outlet property="evenNameLabel" destination="gaF-o5-pT8" id="8Y6-8W-22l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0t-OK-Iy3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -649,7 +643,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="FUB-ju-rcH" kind="show" id="Gie-IT-8gs"/>
+                        <segue destination="FUB-ju-rcH" kind="show" identifier="showdetail" id="Gie-IT-8gs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQX-bb-WKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -795,7 +789,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="FUB-ju-rcH" kind="show" identifier="showdetail" id="rZp-Cr-vqR"/>
+                                    <segue destination="FUB-ju-rcH" kind="show" identifier="" id="rZp-Cr-vqR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -838,10 +832,10 @@
         <image name="event2" width="960" height="638"/>
         <image name="flame" catalog="system" width="54" height="64"/>
         <image name="flame.fill" catalog="system" width="54" height="64"/>
-        <image name="list.number" catalog="system" width="64" height="48"/>
-        <image name="person" catalog="system" width="64" height="58"/>
-        <image name="person.circle" catalog="system" width="64" height="60"/>
-        <image name="person.crop.circle" catalog="system" width="64" height="60"/>
+        <image name="list.number" catalog="system" width="64" height="50"/>
+        <image name="person" catalog="system" width="64" height="60"/>
+        <image name="person.circle" catalog="system" width="64" height="62"/>
+        <image name="person.crop.circle" catalog="system" width="64" height="62"/>
         <image name="signinbeer" width="425" height="801"/>
         <image name="trump" width="2400" height="1350"/>
     </resources>

@@ -114,6 +114,7 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
           }
         }
     
+    
    
     /*
     // Override to support conditional editing of the table view.
