@@ -89,15 +89,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //MARK: Actions
 
+//https://stackoverflow.com/questions/24710041/adding-uitextfield-on-uiview-programmatically-swift/32602425
     
     // edit profile informations
     @IBAction func usernameEdit(_ sender: UITapGestureRecognizer) {
         
-        let userEdit = UITextField(frame: CGRect(x: 20.0, y: 30.0, width: 100.0, height: 33.0))
-        userEdit.backgroundColor = UIColor.red
+        let userEdit = UITextField(frame: CGRect(x: 70.0, y: 396.0, width: 300.0, height: 33.0))
+        userEdit.backgroundColor = UIColor.white
         userEdit.borderStyle = UITextField.BorderStyle.line
+        userEdit.clearButtonMode = UITextField.ViewMode.whileEditing
+        userEdit.font = UIFont.systemFont(ofSize: 17)
+        userEdit.autocorrectionType = UITextAutocorrectionType.no
+        userEdit.text = self.trenutniKorisnik[0].username
+        userEdit.layer.cornerRadius = 15
+        userEdit.delegate = self
         self.view.addSubview(userEdit)
-    
+        
     }
     
     @IBAction func firstnameEdit(_ sender: UITapGestureRecognizer) {
@@ -143,34 +150,28 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     // MARK:- ---> UITextFieldDelegate
-    
         func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
             // return NO to disallow editing.
             print("TextField should begin editing method called")
             return true
         }
-
         func textFieldDidBeginEditing(_ textField: UITextField) {
             // became first responder
             print("TextField did begin editing method called")
         }
-
         func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
             // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
-            print("TextField should snd editing method called")
+            print("TextField should end editing method called")
             return true
         }
-
         func textFieldDidEndEditing(_ textField: UITextField) {
             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
             print("TextField did end editing method called")
         }
-
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
             // if implemented, called in place of textFieldDidEndEditing:
             print("TextField did end editing with reason method called")
         }
-
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             // return NO to not change text
             print("While entering the characters this method gets called")
@@ -182,7 +183,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             print("TextField should clear method called")
             return true
         }
-
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             // called when 'return' key pressed. return NO to ignore.
             print("TextField should return method called")

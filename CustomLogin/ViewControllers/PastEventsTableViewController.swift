@@ -85,7 +85,8 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         // 2
@@ -113,6 +114,7 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
           }
         }
     
+   
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
