@@ -79,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signinbeer" translatesAutoresizingMaskIntoConstraints="NO" id="su6-pU-PAS">
-                                <rect key="frame" x="0.0" y="122" width="375.00000000000011" height="690"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="690"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-J4-PbX">
                                 <rect key="frame" x="10" y="142" width="355" height="636"/>
@@ -375,19 +375,35 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7F-qK-rRb">
                                 <rect key="frame" x="316" y="311" width="30" height="30"/>
+                                <gestureRecognizers/>
                                 <state key="normal" title="Edit"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Z6b-Xb-3CW" appends="YES" id="PcJ-l7-TUw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTa-cz-A5t">
                                 <rect key="frame" x="316" y="391" width="30" height="30"/>
+                                <gestureRecognizers/>
                                 <state key="normal" title="Edit"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hwu-dr-7pE" appends="YES" id="abR-Ll-8ni"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCu-BK-Uxt">
                                 <rect key="frame" x="316" y="429" width="30" height="30"/>
+                                <gestureRecognizers/>
                                 <state key="normal" title="Edit"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fsU-c3-0o8" appends="YES" id="e7X-DP-to0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPc-3W-c2v">
                                 <rect key="frame" x="316" y="349" width="30" height="30"/>
+                                <gestureRecognizers/>
                                 <state key="normal" title="Edit"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fsm-ni-Vk2" appends="YES" id="bKf-ZN-4lP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -435,6 +451,26 @@
                 <tapGestureRecognizer id="QeD-rL-JWZ">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="3Gf-Tc-pDR" id="TVe-jC-aSk"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Z6b-Xb-3CW">
+                    <connections>
+                        <action selector="usernameEdit:" destination="3Gf-Tc-pDR" id="CcP-2B-2cj"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="fsm-ni-Vk2">
+                    <connections>
+                        <action selector="firstnameEdit:" destination="3Gf-Tc-pDR" id="zMF-fw-SSt"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="hwu-dr-7pE">
+                    <connections>
+                        <action selector="lastnameEdit:" destination="3Gf-Tc-pDR" id="Xgf-fw-d1p"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="fsU-c3-0o8">
+                    <connections>
+                        <action selector="emailEdit:" destination="3Gf-Tc-pDR" id="7F7-JQ-2an"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
