@@ -7,35 +7,42 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
 class LeaderBoardTableViewController: UITableViewController {
-
-    let leaderBoard = [
-           ("Patrik"),
-           ("Patrizio"),
-           ("Patrizio"),
-           ("Patrizio"),
-           ("Patrizio"),
-           ("Patrizio"),
-           ("Patrizio"),
-           ("Patrizio"),
-           ("Patrizio"),
-           ("Patrizio"),
-           ("Patrizio"),
-           ("Patrizio"),
-           ("Patrizio"),
-           ("Patrizio"),
-           ("Patrizio")
-       ]
+    
+    var userCollectionRef: CollectionReference!
+    var myEvents = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+      userCollectionRef = Firestore.firestore().collection("events")
+      userCollectionRef.getDocuments { (snapshot, error) in
+          if let error = error{
+              debugPrint("Eror se vraca")
+          }else{
+              guard let snap = snapshot else { return }
+              for document in snap.documents{
+                      
+                  let data = document.data()
+                  let name = data["name"] as? String ?? "Anonymous"
+                  let hostname = data["hostname"] as? String ?? "Anonymous"
+                  
+                if hostname == AppData.shared.profileEmail!{
+                      self.myEvents.append(name)
+                      print(name)
+                  }
+                  
+              }
+              //print(self.futureEvents.count)
+              
+              // hide progress view
+            self.tableView.reloadData()
+          }
+      }
     }
 
     // MARK: - Table view data source
@@ -48,14 +55,14 @@ class LeaderBoardTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return leaderBoard.count
+        return myEvents.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Leader", for: indexPath)
 
-        let(board) = leaderBoard [indexPath.row]
+        let(board) = myEvents [indexPath.row]
         cell.textLabel?.text = board
         return cell
     }
