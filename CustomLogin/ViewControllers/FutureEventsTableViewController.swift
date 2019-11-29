@@ -73,6 +73,7 @@ class FutureEventsTableViewController: UITableViewController {
         
     }
 
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return futureEvents.count
@@ -89,6 +90,13 @@ class FutureEventsTableViewController: UITableViewController {
         return cell
  
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    
+    
     
 
     /*
