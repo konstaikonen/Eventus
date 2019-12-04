@@ -19,6 +19,8 @@ class FutureEventsTableViewController: UITableViewController {
     
     var userCollectionRef: CollectionReference!
     var futureEvents = [String]()
+    var opisArray = [String]()
+    var datumArray = [String]()
     
     
     
@@ -53,6 +55,8 @@ class FutureEventsTableViewController: UITableViewController {
                     
                     if datumDateType?.compare(danasnjiDatumDateType!) == .orderedDescending{
                         self.futureEvents.append(name)
+                        self.opisArray.append(opis)
+                        self.datumArray.append(datum)
                         print(name)
                     }
                     
@@ -119,6 +123,8 @@ class FutureEventsTableViewController: UITableViewController {
            let destView = segue.destination as! EventInfoViewController
             destView.name = self.finalName
             destView.eventName = self.futureEvents[selectedRow]
+            destView.dec = self.opisArray[selectedRow]
+            destView.date = self.datumArray[selectedRow]
            }
        }
 
