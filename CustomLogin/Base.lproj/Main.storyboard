@@ -79,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signinbeer" translatesAutoresizingMaskIntoConstraints="NO" id="su6-pU-PAS">
-                                <rect key="frame" x="0.0" y="122" width="375.00000000000011" height="690"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="690"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-J4-PbX">
                                 <rect key="frame" x="10" y="142" width="355" height="636"/>
@@ -683,6 +683,22 @@
             </objects>
             <point key="canvasLocation" x="3166" y="1786"/>
         </scene>
+        <!--Maps View Controller-->
+        <scene sceneID="tJw-xW-Sgc">
+            <objects>
+                <viewController id="Czs-Fi-i7l" customClass="mapsViewController" customModule="CustomLogin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0XT-Q1-xcZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ero-p5-hAe"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="k5B-FE-req"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h79-5d-FHK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3166" y="1114"/>
+        </scene>
         <!--Events-->
         <scene sceneID="fL5-KB-QSn">
             <objects>
@@ -809,8 +825,12 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FR9-ss-wDr">
                                         <rect key="frame" x="0.0" y="297.33333333333331" width="355" height="34"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="HZv-Yi-tb3" appends="YES" id="o2Q-yH-DIL"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -847,6 +867,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Hp-gf-NLq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="HZv-Yi-tb3">
+                    <connections>
+                        <segue destination="Czs-Fi-i7l" kind="show" id="gyj-Ty-Z3e"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2434" y="1162"/>
         </scene>
