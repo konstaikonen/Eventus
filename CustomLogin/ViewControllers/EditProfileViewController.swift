@@ -27,38 +27,13 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userCollectionRef = Firestore.firestore().collection("users")
+        self.emailEdit.text = AppData.shared.profileEmail
+        self.firstnameEdit.text = AppData.shared.name
+        self.lastnameEdit.text = AppData.shared.surname
+        self.usernameEdit.text = "username"
         
-    
     }
-    
-    func viewDidAppear() {
-        
-            let email: String = AppData.shared.profileEmail!
-            userCollectionRef.getDocuments { (snapshot, error) in
-                if let error = error{
-                    debugPrint("Eror se vraca")
-                }else{
-                    guard let snap = snapshot else { return }
-                    for document in snap.documents{
-                        
-                        let data = document.data()
-                        let firstName = data["firstname"] as? String ?? "Anonymous"
-                        let lastname = data["lastname"] as? String ?? "Anonymous"
-                        let username = data["username"] as? String ?? "Anonymous"
-                        let emailBaza = data["email"] as? String ?? "Anonymous"
-                        if email == emailBaza {
-                            let korisnik = CurrentUser(firstName: firstName, lastName: lastname,username: username, email: email)
-                            self.trenutniKorisnik.append(korisnik)
-                        }
-                    }
-                    self.emailEdit.text = self.trenutniKorisnik[0].email
-                    self.firstnameEdit.text = self.trenutniKorisnik[0].firstName
-                    self.usernameEdit.text = self.trenutniKorisnik[0].username
-                    self.lastnameEdit.text = self.trenutniKorisnik[0].lastName
-                }
-            }
-    }
+ 
 
     /*
     // MARK: - Navigation

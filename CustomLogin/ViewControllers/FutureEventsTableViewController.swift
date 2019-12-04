@@ -119,9 +119,6 @@ class FutureEventsTableViewController: UITableViewController {
            let destView = segue.destination as! EventInfoViewController
             destView.name = self.finalName
             destView.eventName = self.futureEvents[selectedRow]
-            dest.dec
-            dest.date
-            dest.location
            }
        }
 
