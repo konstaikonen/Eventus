@@ -24,6 +24,8 @@ class EventInfoViewController: UIViewController {
         super.viewDidLoad()
         hostNameLabel.text = name
         evenNameLabel.text = eventName
+        decLabel.text = dec
+        dateLabel.text = date
         
     }
     
