@@ -60,7 +60,7 @@ class LeaderBoardTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Leader", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyEvents", for: indexPath)
 
         let(board) = myEvents [indexPath.row]
         cell.textLabel?.text = board
