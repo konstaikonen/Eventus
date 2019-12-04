@@ -678,7 +678,6 @@
         <!--Events-->
         <scene sceneID="fL5-KB-QSn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r7T-y7-02r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="ZOk-xk-bw4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Events" image="flame" catalog="system" selectedImage="flame" id="5Yh-aR-xyb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y7N-Od-A4j">
@@ -692,6 +691,7 @@
                         <segue destination="ETF-eb-pCy" kind="relationship" relationship="rootViewController" id="kuh-vl-pPn"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r7T-y7-02r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="217" y="1209"/>
         </scene>
