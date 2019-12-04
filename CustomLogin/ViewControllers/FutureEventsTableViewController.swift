@@ -44,6 +44,7 @@ class FutureEventsTableViewController: UITableViewController {
                         
                     let data = document.data()
                     let name = data["name"] as? String ?? "Anonymous"
+                    let opis = data["description"] as? String ?? "Anonymous"
                     let datum = data["date"] as? String ?? "Anonymous"
                     let formatter = DateFormatter()
                     formatter.dateFormat = "MM-dd-yyyy' 'HH:mm"
@@ -96,17 +97,33 @@ class FutureEventsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+        print(futureEvents[indexPath.row])
         selectedRow = indexPath.row
-        performSegue(withIdentifier: "showdetail", sender: self)
+        self.performSegue(withIdentifier: "showdetail", sender: self)
     }
     
 
-
-    func prepareForSegue(segue: UIStoryboardSegue, sender: Any?) {
-                let vc = segue.destination as! EventInfoViewController
-                vc.name = self.finalName
+/*
+    func prepare(segue: UIStoryboardSegue, sender: Any?) {
+            print("segue funkcija")
+            let vc = segue.destination as! EventInfoViewController
+            print("segue funkcija")
+            vc.name = self.finalName
+            print("segue funkcija")
         }
-    
+  */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("uslo u prepare")
+          if segue.identifier == "showdetail"{
+            print("uslo u if")
+           let destView = segue.destination as! EventInfoViewController
+            destView.name = self.finalName
+            destView.eventName = self.futureEvents[selectedRow]
+            dest.dec
+            dest.date
+            dest.location
+           }
+       }
 
     /*
     // Override to support conditional editing of the table view.

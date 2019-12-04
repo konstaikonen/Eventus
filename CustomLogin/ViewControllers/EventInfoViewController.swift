@@ -9,14 +9,21 @@
 import UIKit
 
 class EventInfoViewController: UIViewController {
+    @IBOutlet weak var hostNameLabel: UILabel!
     @IBOutlet weak var evenNameLabel: UILabel!
+    @IBOutlet weak var decLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     var name = ""
+    var eventName = ""
+    var dec = ""
+    var location = ""
+    var date = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("one")
-        print(name)
-        print("two")
+        hostNameLabel.text = name
+        evenNameLabel.text = eventName
         
     }
     
