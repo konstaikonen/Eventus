@@ -102,8 +102,6 @@ class FutureEventsTableViewController: UITableViewController {
     
 
 
-    
-    
     func prepareForSegue(segue: UIStoryboardSegue, sender: Any?) {
                 let vc = segue.destination as! EventInfoViewController
                 vc.name = self.finalName
