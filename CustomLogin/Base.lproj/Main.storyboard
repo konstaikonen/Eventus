@@ -79,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signinbeer" translatesAutoresizingMaskIntoConstraints="NO" id="su6-pU-PAS">
-                                <rect key="frame" x="0.0" y="122" width="375.00000000000011" height="690"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="690"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-J4-PbX">
                                 <rect key="frame" x="10" y="142" width="355" height="636"/>
@@ -412,9 +412,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yKK-rn-ywM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0R1-0h-f5g">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="9kf-1U-NTN"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="0R1-0h-f5g"/>
                     <connections>
                         <outlet property="emailEdit" destination="Eq7-wK-qwE" id="Rc0-mP-dAP"/>
                         <outlet property="firstnameEdit" destination="gNm-Zg-Nb0" id="fvY-Fj-1OZ"/>
@@ -424,7 +422,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pH3-nR-dLv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2516" y="1988"/>
+            <point key="canvasLocation" x="-2721" y="1988"/>
         </scene>
         <!--Profile-->
         <scene sceneID="RfC-eO-TKe">

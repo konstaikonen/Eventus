@@ -22,8 +22,22 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var lastnameEdit: UITextField!
     @IBOutlet weak var emailEdit: UITextField!
     
+    /*
+    @IBAction func saveButton(sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Do you want to save changes?", message: "Save or cancel", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+        }
+        ))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+              }
+        ))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     
-    
+*/
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,10 +45,9 @@ class EditProfileViewController: UIViewController {
         self.firstnameEdit.text = AppData.shared.name
         self.lastnameEdit.text = AppData.shared.surname
         self.usernameEdit.text = "username"
-        
     }
- 
-
+    
+    
     /*
     // MARK: - Navigation
 
