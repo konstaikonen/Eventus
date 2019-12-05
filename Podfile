@@ -10,5 +10,7 @@ target 'CustomLogin' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
 	pod 'Firebase/Firestore'
+  pod 'GooglePlaces'
+  pod 'GoogleMaps'
 
 end

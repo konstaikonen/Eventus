@@ -16,4 +16,5 @@ public class AppData {
     var profileEmail: String?
     var name: String?
     var surname: String?
+    var currentLocation: String?
 }
