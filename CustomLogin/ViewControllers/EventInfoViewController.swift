@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class EventInfoViewController: UIViewController {
     @IBOutlet weak var hostNameLabel: UILabel!
@@ -20,14 +21,50 @@ class EventInfoViewController: UIViewController {
     var location = ""
     var date = ""
     
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hostNameLabel.text = name
         evenNameLabel.text = eventName
         decLabel.text = dec
         dateLabel.text = date
+        checkLocationServices()
+        
+        
         
     }
+    
+    func checkLocationServices(){
+    if CLLocationManager.locationServicesEnabled(){
+        checkLocationAuthorization()
+    }else {
+        
+        }
+    }
+    
+    func checkLocationAuthorization(){
+        switch CLLocationManager.authorizationStatus(){
+        case.authorizedWhenInUse:
+            
+            mapView.showsUserLocation = true
+            
+        case .denied:
+            
+            break
+            
+        case .notDetermined:
+            
+        locationManager.requestWhenInUseAuthorization()
+        mapView.showsUserLocation = true
+
+            
+        case .restricted: break
+        case .authorizedAlways: break
+        }
+    }
+    
+    @IBOutlet weak var mapView: MKMapView!
     
 
     /*
