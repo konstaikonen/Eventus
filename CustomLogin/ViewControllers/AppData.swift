@@ -17,4 +17,5 @@ public class AppData {
     var name: String?
     var surname: String?
     var currentLocation: String?
+    
 }

@@ -10,14 +10,27 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+    
+    
 
 class LeaderBoardTableViewController: UITableViewController {
     
+    var finalName = "Patrik"
+    var selectedRow: Int?
     var userCollectionRef: CollectionReference!
+    var opisArray = [String]()
+    var datumArray = [String]()
     var myEvents = [String]()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        let activityIndicatorView = UIActivityIndicatorView()
+        activityIndicatorView.hidesWhenStopped = true
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.center = view.center
+        activityIndicatorView.startAnimating()
 
       userCollectionRef = Firestore.firestore().collection("events")
       userCollectionRef.getDocuments { (snapshot, error) in
@@ -30,9 +43,16 @@ class LeaderBoardTableViewController: UITableViewController {
                   let data = document.data()
                   let name = data["name"] as? String ?? "Anonymous"
                   let hostname = data["hostname"] as? String ?? "Anonymous"
+                let opis = data["description"] as? String ?? "Anonymous"
+                let datum = data["date"] as? String ?? "Anonymous"
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MM-dd-yyyy' 'HH:mm"
+                
                   
                 if hostname == AppData.shared.profileEmail!{
                       self.myEvents.append(name)
+                      self.opisArray.append(opis)
+                      self.datumArray.append(datum)
                       print(name)
                   }
                   
@@ -41,6 +61,7 @@ class LeaderBoardTableViewController: UITableViewController {
               
               // hide progress view
             self.tableView.reloadData()
+            activityIndicatorView.stopAnimating()
           }
       }
     }
@@ -48,26 +69,50 @@ class LeaderBoardTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+           // #warning Incomplete implementation, return the number of sections
+           return 1
+           
+       }
+
+
+       override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+           // #warning Incomplete implementation, return the number of rows
+           return myEvents.count
+       }
+
+       
+       override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+           
+           let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath)
+       
+           let(events) = myEvents[indexPath.row]
+        
+           cell.textLabel?.text = events
+           
+           return cell
     
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return myEvents.count
-    }
+       }
+       
+       override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           print(indexPath.row)
+           print("Oznacio ga je")
+           print(myEvents[indexPath.row])
+           selectedRow = indexPath.row
+           self.performSegue(withIdentifier: "showyourdetail", sender: self)
+       }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyEvents", for: indexPath)
-
-        let(board) = myEvents [indexPath.row]
-        cell.textLabel?.text = board
-        return cell
-    }
-    
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           print("uslo u prepare")
+             if segue.identifier == "showyourdetail"{
+               print("uslo u if")
+              let destView = segue.destination as! EventInfoViewController
+               destView.name = self.finalName
+                destView.eventName = self.myEvents[selectedRow!]
+                destView.dec = self.opisArray[selectedRow!]
+                destView.date = self.datumArray[selectedRow!]
+              }
+          }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
