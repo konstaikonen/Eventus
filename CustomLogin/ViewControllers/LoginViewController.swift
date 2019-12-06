@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    var jesiLoginan = false
      var userCollectionRef: CollectionReference!
     
     override func viewDidLoad() {
@@ -52,8 +53,7 @@ class LoginViewController: UIViewController {
         //Signing in the user
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil{
-                self.errorLabel.text = error!.localizedDescription
-                self.errorLabel.alpha = 1
+                self.errorLabel.text = "Wrong Info"
             }else{
                 
                 self.userCollectionRef = Firestore.firestore().collection("users")
@@ -73,19 +73,26 @@ class LoginViewController: UIViewController {
                                        AppData.shared.profileEmail = email
                                     AppData.shared.name = firstName
                                     AppData.shared.surname =  lastname
+                                    self.jesiLoginan = true
+                                    
                             }
                         }
+                            
                     }
                 }
+                
             }
         
-                
+            if self.jesiLoginan == true{
                 let tabBarViewController = self.storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabBarViewController) as? TabBarViewController
                 
                 AppData.shared.profileEmail = email
                 
                 self.view.window?.rootViewController = tabBarViewController
                 self.view.window?.makeKeyAndVisible()
+            }else{
+                self.errorLabel.text = "Wrong Info"
+            }
                 
                 
                 
