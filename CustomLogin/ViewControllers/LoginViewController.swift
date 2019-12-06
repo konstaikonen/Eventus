@@ -19,9 +19,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    var jesiLoginan :Bool?
      var userCollectionRef: CollectionReference!
     
     override func viewDidLoad() {
+         jesiLoginan = true
         super.viewDidLoad()
         
         setUpElements()
@@ -43,7 +45,7 @@ class LoginViewController: UIViewController {
     */
 
     @IBAction func loginTapped(_ sender: Any) {
-        
+        setUpElements()
         //Validate text fields
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -52,8 +54,11 @@ class LoginViewController: UIViewController {
         //Signing in the user
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil{
-                self.errorLabel.text = error!.localizedDescription
+                self.errorLabel.text = "Wrong Info"
                 self.errorLabel.alpha = 1
+                self.emailTextField.text = ""
+                self.passwordTextField.text = ""
+                self.jesiLoginan = false
             }else{
                 
                 self.userCollectionRef = Firestore.firestore().collection("users")
@@ -73,19 +78,29 @@ class LoginViewController: UIViewController {
                                        AppData.shared.profileEmail = email
                                     AppData.shared.name = firstName
                                     AppData.shared.surname =  lastname
+                                    self.jesiLoginan = true
+                                    
                             }
                         }
+                            
                     }
                 }
+                
             }
         
-                
+            if self.jesiLoginan == true{
                 let tabBarViewController = self.storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabBarViewController) as? TabBarViewController
                 
                 AppData.shared.profileEmail = email
                 
                 self.view.window?.rootViewController = tabBarViewController
                 self.view.window?.makeKeyAndVisible()
+                
+            }else{
+                self.errorLabel.text = "Wrong Info"
+                self.jesiLoginan = true
+                
+            }
                 
                 
                 

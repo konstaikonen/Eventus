@@ -97,6 +97,8 @@ resultsViewController?.delegate = self
         CustomLatitude = place.coordinate.latitude
         CustomLongtitude = place.coordinate.longitude
         
+        AppData.shared.latitude = CustomLatitude
+        AppData.shared.longitude = CustomLongtitude
         print(place.coordinate.longitude)
 
         print(place.coordinate.latitude)
