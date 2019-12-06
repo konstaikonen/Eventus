@@ -11,16 +11,19 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-var selectedRow = 1
+
 
 class FutureEventsTableViewController: UITableViewController {
-
+    
+    
+    
     var finalName = "Patrik"
     
     var userCollectionRef: CollectionReference!
     var futureEvents = [String]()
     var opisArray = [String]()
     var datumArray = [String]()
+    var selectedRow: Int?
     
     
     
@@ -68,6 +71,7 @@ class FutureEventsTableViewController: UITableViewController {
                 activityIndicatorView.stopAnimating()
             }
         }
+        
     }
     
   
@@ -122,9 +126,9 @@ class FutureEventsTableViewController: UITableViewController {
             print("uslo u if")
            let destView = segue.destination as! EventInfoViewController
             destView.name = self.finalName
-            destView.eventName = self.futureEvents[selectedRow]
-            destView.dec = self.opisArray[selectedRow]
-            destView.date = self.datumArray[selectedRow]
+            destView.eventName = self.futureEvents[selectedRow ?? 0]
+            destView.dec = self.opisArray[selectedRow ?? 0]
+            destView.date = self.datumArray[selectedRow ?? 0]
            }
        }
 

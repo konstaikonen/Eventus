@@ -22,6 +22,11 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     
+    
+    var CustomLongtitude:Double = 0.0;
+    var CustomLatitude:Double = 0.0;
+    
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
       // 3
       guard status == .authorizedWhenInUse else {
@@ -58,7 +63,6 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
         view = mapView
         
         setupSearchController()
-        
     }
    
     func setupSearchController(){
@@ -86,8 +90,21 @@ resultsViewController?.delegate = self
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
-       
-        print(place.addressComponents)
         
-    }
+        //patrik varijable
+        
+       
+        CustomLatitude = place.coordinate.latitude
+        CustomLongtitude = place.coordinate.longitude
+        
+        print(place.coordinate.longitude)
+
+        print(place.coordinate.latitude)
+        
+        let position = CLLocationCoordinate2D(latitude: CustomLatitude, longitude: CustomLongtitude)
+        let marker = GMSMarker(position:position)
+        marker.tracksViewChanges = true
+        marker.map = mapView
+            }
+
 }

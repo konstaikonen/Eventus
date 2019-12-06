@@ -13,16 +13,16 @@ import FirebaseAuth
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
+    //MARK: Properties
     
     var trenutniKorisnik = [CurrentUser]()
     var userCollectionRef: CollectionReference!
     
+    @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var usernameEdit: UITextField!
     @IBOutlet weak var firstnameEdit: UITextField!
     @IBOutlet weak var lastnameEdit: UITextField!
     @IBOutlet weak var emailEdit: UITextField!
-    @IBOutlet weak var photoImageView: UIImageView!
-    
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Are you sure you want to save changes?", message: "Save or cancel", preferredStyle: UIAlertController.Style.alert)
@@ -39,11 +39,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         //modify profile picture
         self.photoImageView.layer.cornerRadius = self.photoImageView.frame.width/100.0
         self.photoImageView.clipsToBounds = true
-        
     }
     
     override func viewDidLoad() {
@@ -68,21 +66,21 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
     //change user photo
     
-   
+    //MARK: Actions
+ 
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
-        
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
-        let imagePickerController = UIImagePickerController()
-        
-        // Only allow photos to be picked, not taken.
-        imagePickerController.sourceType = .photoLibrary
-        
-        // Make sure ViewController is notified when the user picks an image.
-        imagePickerController.delegate = self
-        
-        present(imagePickerController, animated: true, completion: nil)
+           let imagePickerController = UIImagePickerController()
+           
+           // Only allow photos to be picked, not taken.
+           imagePickerController.sourceType = .photoLibrary
+           
+           // Make sure ViewController is notified when the user picks an image.
+           imagePickerController.delegate = self
+           
+           present(imagePickerController, animated: true, completion: nil)
     }
-      
+    
     //MARK: UIImagePickerControllerDelegate
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
