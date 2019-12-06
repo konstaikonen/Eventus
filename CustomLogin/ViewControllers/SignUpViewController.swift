@@ -20,7 +20,14 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var usernameLabel: UITextField!
     
+    @IBOutlet weak var viewBackground: UIView!
+    
+    
+    
     var pomocniEmail:String = ""
+    
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
