@@ -458,7 +458,13 @@
                             <constraint firstItem="pOT-Da-SjP" firstAttribute="top" secondItem="yFv-iF-Bgx" secondAttribute="bottom" constant="8" id="vbX-ti-8aL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit profile" id="0R1-0h-f5g"/>
+                    <navigationItem key="navigationItem" title="Edit profile" id="0R1-0h-f5g">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="4WL-BA-MKT">
+                            <connections>
+                                <action selector="saveButton:" destination="6Ob-76-Bet" id="ZoU-Gb-gZ3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailEdit" destination="Eq7-wK-qwE" id="Rc0-mP-dAP"/>
                         <outlet property="firstnameEdit" destination="gNm-Zg-Nb0" id="fvY-Fj-1OZ"/>
@@ -558,7 +564,7 @@
                                 <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click photo to change" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Paf-ft-C04">
-                                <rect key="frame" x="123.00000000000001" y="328.66666666666669" width="167.33333333333337" height="20.333333333333314"/>
+                                <rect key="frame" x="123" y="328.66666666666669" width="167.33333333333337" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
