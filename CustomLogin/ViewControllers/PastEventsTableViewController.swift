@@ -29,6 +29,9 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
     var opisArray = [String]()
     var datumArray = [String]()
     var selectedRow: Int?
+    var myLon = [Double]()
+    var myLat = [Double]()
+    var myAdress = [String]()
     
     var filteredTableData = [String]()
     var resultSearchController = UISearchController()
@@ -62,16 +65,22 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
                           let data = document.data()
                            let name = data["name"] as? String ?? "Anonymous"
                            let opis = data["description"] as? String ?? "Anonymous"
+                            let adresa = data["adress"] as? String ?? "Anonymous"
                            let datum = data["date"] as? String ?? "Anonymous"
                            let formatter = DateFormatter()
                            formatter.dateFormat = "MM-dd-yyyy' 'HH:mm"
                            let datumDateType = formatter.date(from: datum)
+                        let latitude = data["latitude"] as? Double
+                        let longitude = data["longitude"] as? Double
                            let danasnjiDatumDateType = formatter.date(from: self.getCurrentTime())
                            if datumDateType?.compare(danasnjiDatumDateType!) == .orderedAscending{
                                 self.futureEvents.append(name)
                                 self.opisArray.append(opis)
                                 self.datumArray.append(datum)
                                self.tableData.append(name)
+                            self.myAdress.append(adresa)
+                            self.myLat.append(latitude!)
+                            self.myLon.append(longitude!)
                                print(name)
                            }
                         
@@ -129,6 +138,9 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
         destView.eventName = self.tableData[selectedRow!]
         destView.dec = self.opisArray[selectedRow!]
         destView.date = self.datumArray[selectedRow!]
+        destView.longitude = self.myLon[selectedRow!]
+        destView.latitude = self.myLat[selectedRow!]
+        destView.location = self.myAdress[selectedRow!]
         }
     }
 

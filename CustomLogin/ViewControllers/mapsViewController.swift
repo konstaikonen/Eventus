@@ -84,25 +84,29 @@ resultsViewController?.delegate = self
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for places"
         navigationItem.titleView = searchController?.searchBar
+        
+       
         definesPresentationContext = true
         searchController?.hidesNavigationBarDuringPresentation = false
+         print(searchBar.text)
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
         
         //patrik varijable
-        
+         
        
         CustomLatitude = place.coordinate.latitude
         CustomLongtitude = place.coordinate.longitude
         
         AppData.shared.latitude = CustomLatitude
         AppData.shared.longitude = CustomLongtitude
-        print(place.coordinate.longitude)
+       
+        AppData.shared.adresa = place.formattedAddress
 
         print(place.coordinate.latitude)
-        
+        print(AppData.shared.adresa!)
         let position = CLLocationCoordinate2D(latitude: CustomLatitude, longitude: CustomLongtitude)
         let marker = GMSMarker(position:position)
         marker.tracksViewChanges = true

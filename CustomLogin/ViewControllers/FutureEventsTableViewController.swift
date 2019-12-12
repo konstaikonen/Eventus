@@ -24,6 +24,9 @@ class FutureEventsTableViewController: UITableViewController {
     var opisArray = [String]()
     var datumArray = [String]()
     var selectedRow: Int?
+    var myLon = [Double]()
+    var myLat = [Double]()
+    var myAdress = [String]()
     
     
     
@@ -51,15 +54,21 @@ class FutureEventsTableViewController: UITableViewController {
                     let name = data["name"] as? String ?? "Anonymous"
                     let opis = data["description"] as? String ?? "Anonymous"
                     let datum = data["date"] as? String ?? "Anonymous"
+                    let adresa = data["adress"] as? String ?? "Anonymous"
                     let formatter = DateFormatter()
                     formatter.dateFormat = "MM-dd-yyyy' 'HH:mm"
                     let datumDateType = formatter.date(from: datum)
                     let danasnjiDatumDateType = formatter.date(from: self.getCurrentTime())
+                    let latitude = data["latitude"] as? Double
+                    let longitude = data["longitude"] as? Double
                     
                     if datumDateType?.compare(danasnjiDatumDateType!) == .orderedDescending{
                         self.futureEvents.append(name)
                         self.opisArray.append(opis)
                         self.datumArray.append(datum)
+                        self.myLat.append(latitude!)
+                        self.myLon.append(longitude!)
+                        self.myAdress.append(adresa)
                         print(name)
                     }
                     
@@ -129,6 +138,9 @@ class FutureEventsTableViewController: UITableViewController {
             destView.eventName = self.futureEvents[selectedRow ?? 0]
             destView.dec = self.opisArray[selectedRow ?? 0]
             destView.date = self.datumArray[selectedRow ?? 0]
+            destView.longitude = self.myLon[selectedRow!]
+            destView.latitude = self.myLat[selectedRow!]
+            destView.location = self.myAdress[selectedRow!]
            }
        }
 

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 import MapKit
 
 class EventInfoViewController: UIViewController {
@@ -20,6 +23,8 @@ class EventInfoViewController: UIViewController {
     var dec = ""
     var location = ""
     var date = ""
+    var longitude = 0.0
+    var latitude  = 0.0
     
     let locationManager = CLLocationManager()
     
@@ -29,12 +34,23 @@ class EventInfoViewController: UIViewController {
         evenNameLabel.text = eventName
         decLabel.text = dec
         dateLabel.text = date
-        checkLocationServices()
+        locationLabel.text = location
+        
+        let location = CLLocationCoordinate2D(latitude: latitude,
+                                              longitude: longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: location, span: span)
+       mapView.setRegion(region, animated: true)
+        
+       let annotation = MKPointAnnotation()
+       annotation.coordinate = location
+       annotation.title = "Event Location"
+       mapView.addAnnotation(annotation)
         
         
         
     }
-    
+    /*
     func checkLocationServices(){
     if CLLocationManager.locationServicesEnabled(){
         checkLocationAuthorization()
@@ -63,7 +79,7 @@ class EventInfoViewController: UIViewController {
         case .authorizedAlways: break
         }
     }
-    
+    */
     @IBOutlet weak var mapView: MKMapView!
     
 

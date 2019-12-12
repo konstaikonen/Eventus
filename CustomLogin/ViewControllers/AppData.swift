@@ -18,4 +18,8 @@ public class AppData {
     var surname: String?
     var latitude : Double?
     var longitude : Double?
+    var adresa : String?
+    var sadasnjiLat :Double?
+    var sadasnjiLon : Double?
+    
 }
