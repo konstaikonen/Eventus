@@ -21,6 +21,9 @@ class LeaderBoardTableViewController: UITableViewController {
     var opisArray = [String]()
     var datumArray = [String]()
     var myEvents = [String]()
+    var myLon = [Double]()
+    var myLat = [Double]()
+    var myAdress = [String]()
     
     override func viewDidLoad() {
         
@@ -45,6 +48,9 @@ class LeaderBoardTableViewController: UITableViewController {
                   let hostname = data["hostname"] as? String ?? "Anonymous"
                 let opis = data["description"] as? String ?? "Anonymous"
                 let datum = data["date"] as? String ?? "Anonymous"
+                 let latitude = data["latitude"] as? Double
+                let longitude = data["longitude"] as? Double
+                let adresa = data["adress"] as? String ?? "Anonymous"
                 let formatter = DateFormatter()
                 formatter.dateFormat = "MM-dd-yyyy' 'HH:mm"
                 
@@ -53,6 +59,9 @@ class LeaderBoardTableViewController: UITableViewController {
                       self.myEvents.append(name)
                       self.opisArray.append(opis)
                       self.datumArray.append(datum)
+                    self.myLat.append(latitude!)
+                    self.myLon.append(longitude!)
+                    self.myAdress.append(adresa)
                       print(name)
                   }
                   
@@ -111,6 +120,9 @@ class LeaderBoardTableViewController: UITableViewController {
                 destView.eventName = self.myEvents[selectedRow!]
                 destView.dec = self.opisArray[selectedRow!]
                 destView.date = self.datumArray[selectedRow!]
+                destView.longitude = self.myLon[selectedRow!]
+                destView.latitude = self.myLat[selectedRow!]
+                destView.location = self.myAdress[selectedRow!]
               }
           }
     /*

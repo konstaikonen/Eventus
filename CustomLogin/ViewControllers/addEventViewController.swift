@@ -70,8 +70,9 @@ class addEventViewController: UIViewController {
         let eventTime = startDateAndTime.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let hostname = AppData.shared.profileEmail!.trimmingCharacters(in: .whitespacesAndNewlines)
         let db = Firestore.firestore()
-        db.collection("events").addDocument(data: ["name":eventName,"description":eventDescription,"date":eventTime,"hostname":hostname])
+        db.collection("events").addDocument(data: ["name":eventName,"description":eventDescription,"date":eventTime,"hostname":hostname,"longitude":AppData.shared.longitude,"latitude":AppData.shared.latitude,"adress":AppData.shared.adresa])
         //Transition to home screen
+        print(AppData.shared.adresa!)
         self.transitionToHome()
     }
     
