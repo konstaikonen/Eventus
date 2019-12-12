@@ -21,14 +21,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UITextField!
     
     @IBOutlet weak var viewBackground: UIView!
-    
-    
-    
+
     var pomocniEmail:String = ""
-    
-   
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,7 +47,7 @@ class SignUpViewController: UIViewController {
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if isPasswordValid(cleanedPassword) != false{
-            return "Please make sure zour password is at least 8 characters , contains a special character and a number"
+            return "Please make sure your password is at least 8 characters , contains a special character and a number"
         }
         
         return nil
