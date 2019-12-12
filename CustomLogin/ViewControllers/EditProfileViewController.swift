@@ -25,7 +25,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var emailEdit: UITextField!
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Are you sure you want to save changes?", message: "Save or cancel", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Are you sure you want to save changes?", message: "", preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
         }
@@ -51,6 +51,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.firstnameEdit.text = AppData.shared.name
         self.lastnameEdit.text = AppData.shared.surname
         self.usernameEdit.text = "username"
+        usernameEdit.becomeFirstResponder()
     }
     
     

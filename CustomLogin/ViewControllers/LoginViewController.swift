@@ -23,10 +23,11 @@ class LoginViewController: UIViewController {
      var userCollectionRef: CollectionReference!
     
     override func viewDidLoad() {
-         jesiLoginan = true
+        jesiLoginan = true
         super.viewDidLoad()
         
         setUpElements()
+        emailTextField.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
     

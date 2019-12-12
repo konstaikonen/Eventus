@@ -37,8 +37,8 @@ class addEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hostnameLabel.text = AppData.shared.name
-            startDateAndTime.inputView = datePicker
-        
+        startDateAndTime.inputView = datePicker
+        eventNameLabel.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
     }
