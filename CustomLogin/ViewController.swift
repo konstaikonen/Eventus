@@ -24,14 +24,12 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
         self.hidesBottomBarWhenPushed = true
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         // Hide the navigation bar
         super.viewWillDisappear(animated)
     navigationController?.setNavigationBarHidden(false, animated: animated)
-         
     }
     
     override func viewDidLoad() {
@@ -40,12 +38,12 @@ class ViewController: UIViewController {
         setUpElements()
         
         //modify buttons
-        self.signUpButton.layer.cornerRadius = 4
-        self.signUpButton.layer.borderWidth = 1
-        self.signUpButton.layer.borderColor = UIColor.blue.cgColor
-        self.logInButton.layer.cornerRadius = 4
-        self.logInButton.layer.borderWidth = 1
-        self.logInButton.layer.borderColor = UIColor.blue.cgColor
+        self.signUpButton.layer.cornerRadius = 16
+        //self.signUpButton.layer.borderWidth = 1
+        //self.signUpButton.layer.borderColor = UIColor.blue.cgColor
+        self.logInButton.layer.cornerRadius = 16
+        //self.logInButton.layer.borderWidth = 1
+        //self.logInButton.layer.borderColor = UIColor.blue.cgColor
        
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
