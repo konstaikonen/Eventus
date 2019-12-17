@@ -31,6 +31,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let alert = UIAlertController(title: "Are you sure you want to log out?", message: "", preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "Log out", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "logOut", sender: self)
+            
         }
         ))
         
