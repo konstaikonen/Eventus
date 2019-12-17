@@ -16,8 +16,10 @@ class addEventViewController: UIViewController {
     @IBOutlet weak var eventNameLabel: UITextField!
     @IBOutlet weak var eventDescriptionLabel: UITextField!
     
+    @IBOutlet weak var locationLabel: UITextField!
     @IBOutlet weak var hostnameLabel: UILabel!
     @IBOutlet weak var startDateAndTime: UITextField!
+    var locationTest: String = ""
 
     
     lazy var datePicker: UIDatePicker = {
@@ -39,7 +41,7 @@ class addEventViewController: UIViewController {
         hostnameLabel.text = AppData.shared.name
         startDateAndTime.inputView = datePicker
         eventNameLabel.becomeFirstResponder()
-
+        locationLabel.text = AppData.shared.adresa
         // Do any additional setup after loading the view.
     }
     
@@ -64,7 +66,7 @@ class addEventViewController: UIViewController {
     }
     */
 
-    @IBAction func saveButton(_ sender: Any) {
+    @IBAction func saveIt(_ sender: Any) {
         let eventName = eventNameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let eventDescription = eventDescriptionLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let eventTime = startDateAndTime.text!.trimmingCharacters(in: .whitespacesAndNewlines)

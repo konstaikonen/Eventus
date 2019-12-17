@@ -21,5 +21,6 @@ public class AppData {
     var adresa : String?
     var sadasnjiLat :Double?
     var sadasnjiLon : Double?
+    var selectedAdress: String?
     
 }
