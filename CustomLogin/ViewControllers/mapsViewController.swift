@@ -104,7 +104,9 @@ resultsViewController?.delegate = self
         AppData.shared.longitude = CustomLongtitude
        
         AppData.shared.adresa = place.formattedAddress
-
+        AppData.shared.selectedAdress = place.formattedAddress
+        let addEventViewController = self.storyboard?.instantiateViewController(withIdentifier: "addEvent") as! addEventViewController
+        addEventViewController.locationTest = place.formattedAddress!
         print(place.coordinate.latitude)
         print(AppData.shared.adresa!)
         let position = CLLocationCoordinate2D(latitude: CustomLatitude, longitude: CustomLongtitude)

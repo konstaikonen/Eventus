@@ -13,11 +13,15 @@ import FirebaseAuth
 import MapKit
 
 class EventInfoViewController: UIViewController {
-    @IBOutlet weak var hostNameLabel: UILabel!
-    @IBOutlet weak var evenNameLabel: UILabel!
-    @IBOutlet weak var decLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
+    
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var hostNameLabel: UILabel!
+    @IBOutlet weak var decLabel: UILabel!
+    @IBOutlet weak var eventNameLabel: UILabel!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
     var name = ""
     var eventName = ""
     var dec = ""
@@ -25,17 +29,16 @@ class EventInfoViewController: UIViewController {
     var date = ""
     var longitude = 0.0
     var latitude  = 0.0
-    
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = eventName
         hostNameLabel.text = name
-        evenNameLabel.text = eventName
+        eventNameLabel.text = eventName
         decLabel.text = dec
         dateLabel.text = date
         locationLabel.text = location
-        
         let location = CLLocationCoordinate2D(latitude: latitude,
                                               longitude: longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
@@ -47,8 +50,14 @@ class EventInfoViewController: UIViewController {
        annotation.title = "Event Location"
        mapView.addAnnotation(annotation)
         
+       
         
-        
+        self.imageView.layer.cornerRadius = 8
+        self.imageView.layer.shadowColor = UIColor.black.cgColor
+        self.imageView.layer.shadowOpacity = 1
+        self.imageView.layer.shadowOffset = .zero
+        self.imageView.layer.shadowOpacity = 1
+     
     }
     /*
     func checkLocationServices(){
@@ -92,5 +101,14 @@ class EventInfoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    @IBAction func openAppleMaps(_ sender: UITapGestureRecognizer) {
+        
+        let coordinate = CLLocationCoordinate2DMake(latitude,longitude)
+        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+        mapItem.name = "Target location"
+        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+    }
+    
 
 }

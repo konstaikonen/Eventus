@@ -15,6 +15,7 @@ struct Constants {
         static let tabBarViewController = "TabVC"
         static let profileViewController = "ProfileVC"
         static let viewController = "ViewVC"
+        static let addEventViewController = "addEvent"
         
     }
 }
