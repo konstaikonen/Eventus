@@ -25,6 +25,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var detailsStack: UIStackView!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var stackBack: UIImageView!
     
     
     @IBAction func logoutButton(_ sender: UIButton) {
@@ -43,21 +44,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.present(alert, animated: true, completion: nil)
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        //modify profile picture
-        self.photoImageView.layer.cornerRadius = self.photoImageView.frame.width/100.0
-        self.photoImageView.clipsToBounds = true
-        
-    }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         userCollectionRef = Firestore.firestore().collection("users")
+        
+        //background
+        view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
+        
+        //modify profile picture
+               self.photoImageView.layer.cornerRadius = 8
+               self.photoImageView.clipsToBounds = true
+        
     }
 
+    
     override func viewDidAppear(_ animated: Bool) {
         let email: String = AppData.shared.profileEmail!
         userCollectionRef.getDocuments { (snapshot, error) in
