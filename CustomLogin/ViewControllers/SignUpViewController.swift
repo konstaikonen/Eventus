@@ -19,9 +19,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var usernameLabel: UITextField!
-    
     @IBOutlet weak var viewBackground: UIView!
-
+    @IBOutlet weak var imageBack: UIImageView!
+    
     var pomocniEmail:String = ""
 
     override func viewDidLoad() {
@@ -29,7 +29,9 @@ class SignUpViewController: UIViewController {
         
         setUpElements()
         firstNameTextField.becomeFirstResponder()
-        // Do any additional setup after loading the view.
+        //modify
+        self.imageBack.layer.opacity = 0.8
+        self.signUpButton.layer.cornerRadius = 4
     }
     
     func setUpElements(){
@@ -63,11 +65,8 @@ class SignUpViewController: UIViewController {
         }else{
             
             //creat cleaned version of the data
-            
             let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
             let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let username = usernameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -90,9 +89,7 @@ class SignUpViewController: UIViewController {
                     self.transitionToHome()
                 }
             }
-        
         }
-        
     }
     
     func isPasswordValid(_ password : String) -> Bool{
@@ -107,17 +104,12 @@ class SignUpViewController: UIViewController {
     }
     
     func transitionToHome(){
-
         let tabBarViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabBarViewController) as? TabBarViewController
-        
-       
-        
+   
         AppData.shared.profileEmail = pomocniEmail
         view.window?.rootViewController = tabBarViewController
         view.window?.makeKeyAndVisible()
- 
-        
-        
+      
         //self.performSegue(withIdentifier: "loginToProfile", sender: self)
         
     }

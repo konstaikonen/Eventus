@@ -28,6 +28,8 @@ class LeaderBoardTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        //set background color
+        view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
         
         let activityIndicatorView = UIActivityIndicatorView()
         activityIndicatorView.hidesWhenStopped = true

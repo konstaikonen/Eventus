@@ -38,6 +38,9 @@ class addEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //backgroundcolor
+        view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
+        
         hostnameLabel.text = AppData.shared.name
         startDateAndTime.inputView = datePicker
         eventNameLabel.becomeFirstResponder()

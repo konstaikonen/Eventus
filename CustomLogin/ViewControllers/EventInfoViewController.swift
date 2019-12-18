@@ -33,6 +33,8 @@ class EventInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
+            
         self.title = eventName
         hostNameLabel.text = name
         eventNameLabel.text = eventName

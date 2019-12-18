@@ -15,6 +15,7 @@ import FirebaseAuth
 
 class FutureEventsTableViewController: UITableViewController {
     
+    @IBOutlet weak var navigationBar: UINavigationItem!
     
     
     var finalName = "Patrik"
@@ -28,13 +29,11 @@ class FutureEventsTableViewController: UITableViewController {
     var myLat = [Double]()
     var myAdress = [String]()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-    
+        //set background color
+        view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
+      
         // add progress indicator
         let activityIndicatorView = UIActivityIndicatorView()
         activityIndicatorView.hidesWhenStopped = true
