@@ -54,12 +54,12 @@ class EventInfoViewController: UIViewController {
         
        
         
-        self.imageView.layer.cornerRadius = 8
+  /*      self.imageView.layer.cornerRadius = 8
         self.imageView.layer.shadowColor = UIColor.black.cgColor
         self.imageView.layer.shadowOpacity = 1
         self.imageView.layer.shadowOffset = .zero
         self.imageView.layer.shadowOpacity = 1
-     
+    */
     }
     /*
     func checkLocationServices(){
@@ -104,6 +104,12 @@ class EventInfoViewController: UIViewController {
     }
     */
 
+    @IBAction func navigateMaps(_ sender: UIButton) {
+        let coordinate = CLLocationCoordinate2DMake(latitude,longitude)
+               let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+               mapItem.name = "Target location"
+               mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+    }
     @IBAction func openAppleMaps(_ sender: UITapGestureRecognizer) {
         
         let coordinate = CLLocationCoordinate2DMake(latitude,longitude)
