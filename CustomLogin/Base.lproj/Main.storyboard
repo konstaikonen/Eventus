@@ -426,10 +426,10 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="3Ao-xh-BPM">
-                                        <variation key="heightClass=compact" constant="70"/>
+                                        <variation key="heightClass=compact" constant="100"/>
                                     </constraint>
                                     <constraint firstAttribute="width" constant="200" id="cKM-eN-WTW">
-                                        <variation key="heightClass=compact" constant="70"/>
+                                        <variation key="heightClass=compact" constant="100"/>
                                     </constraint>
                                 </constraints>
                                 <connections>
