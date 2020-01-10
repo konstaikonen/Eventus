@@ -13,11 +13,14 @@ import FirebaseAuth
 import MapKit
 
 class EventInfoViewController: UIViewController {
+        
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var hostNameLabel: UILabel!
     @IBOutlet weak var decLabel: UILabel!
+    
+
     @IBOutlet weak var eventNameLabel: UILabel!
     
     @IBOutlet weak var imageView: UIImageView!

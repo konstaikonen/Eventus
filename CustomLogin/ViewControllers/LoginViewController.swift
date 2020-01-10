@@ -35,7 +35,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         setUpElements()
-        self.appLogo.layer.opacity = 0.8
         
         self.loginButton.layer.cornerRadius = 4
         self.signupButton.layer.cornerRadius = 4
