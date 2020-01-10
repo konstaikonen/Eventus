@@ -24,8 +24,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var signupButton: UIButton!
-    @IBOutlet weak var appLogo: UIImageView!
-    
     
     var jesiLoginan :Bool?
     var userCollectionRef: CollectionReference!
@@ -39,6 +37,7 @@ class LoginViewController: UIViewController {
         self.loginButton.layer.cornerRadius = 4
         self.signupButton.layer.cornerRadius = 4
         emailTextField.becomeFirstResponder()
+        
         //videobackground
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
               self.navigationController!.navigationBar.shadowImage = UIImage()
@@ -59,8 +58,18 @@ class LoginViewController: UIViewController {
                                                      selector: #selector(playerItemDidReachEnd(notification:)),
                                                      name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
                                                      object: avPlayer.currentItem)
-          
-          
+
+    }
+    
+    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        
+        if toInterfaceOrientation == .landscapeLeft || toInterfaceOrientation == .landscapeRight {
+        avPlayerLayer.isHidden = true
+        view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
+        } else {
+            view.backgroundColor = .clear
+            avPlayerLayer.isHidden = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -97,9 +97,12 @@ class LeaderBoardTableViewController: UITableViewController {
            let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath)
        
            let(events) = myEvents[indexPath.row]
+
         
            cell.textLabel?.text = events
-           
+           // Add date to "Subtitle"
+           // cell.detailTextLabel?.text =
+        
            return cell
     
        }

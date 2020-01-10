@@ -44,6 +44,7 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
                 controller.searchResultsUpdater = self
                 controller.obscuresBackgroundDuringPresentation = false
                 controller.searchBar.sizeToFit()
+                controller.searchBar.delegate = self
                 tableView.tableHeaderView = controller.searchBar
                 return controller
             })()
@@ -118,8 +119,8 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
        
            let(events) = tableData[indexPath.row]
            cell.textLabel?.text = events
-           
-           return cell
+
+        return cell
     
        }
     
