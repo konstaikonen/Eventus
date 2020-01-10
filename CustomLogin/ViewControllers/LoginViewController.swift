@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var appLogo: UIImageView!
     
     
     var jesiLoginan :Bool?
@@ -34,7 +35,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         setUpElements()
-
+        self.appLogo.layer.opacity = 0.8
         
         self.loginButton.layer.cornerRadius = 4
         self.signupButton.layer.cornerRadius = 4
