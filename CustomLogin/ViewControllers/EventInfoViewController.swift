@@ -107,12 +107,13 @@ class EventInfoViewController: UIViewController {
     }
     */
 
-    @IBAction func navigateMaps(_ sender: UIButton) {
+    @IBAction func navigateMaps(_ sender: UITapGestureRecognizer) {
         let coordinate = CLLocationCoordinate2DMake(latitude,longitude)
-               let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
-               mapItem.name = "Target location"
-               mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+                      let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+                      mapItem.name = "Target location"
+                      mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
     }
+  
     @IBAction func openAppleMaps(_ sender: UITapGestureRecognizer) {
         
         let coordinate = CLLocationCoordinate2DMake(latitude,longitude)
