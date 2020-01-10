@@ -78,6 +78,8 @@ class addEventViewController: UIViewController {
         db.collection("events").addDocument(data: ["name":eventName,"description":eventDescription,"date":eventTime,"hostname":hostname,"longitude":AppData.shared.longitude,"latitude":AppData.shared.latitude,"adress":AppData.shared.adresa])
         //Transition to home screen
         print(AppData.shared.adresa!)
+        AppData.shared.adresa = ""
+        AppData.shared.selectedAdress = ""
         self.transitionToHome()
     }
     

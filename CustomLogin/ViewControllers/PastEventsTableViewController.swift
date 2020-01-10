@@ -79,7 +79,7 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
                                 self.opisArray.append(opis)
                                 self.datumArray.append(datum)
                                self.tableData.append(name)
-                            self.myAdress.append(adresa)
+                            self.myAdress.append(adresa)//konsta!
                             self.myLat.append(latitude!)
                             self.myLon.append(longitude!)
                                print(name)
