@@ -68,8 +68,10 @@ class addEventViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
-    @IBAction func saveIt(_ sender: Any) {
+    @IBAction func saveIt(_ sender: UIBarButtonItem) {
         let eventName = eventNameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let eventDescription = eventDescriptionLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let eventTime = startDateAndTime.text!.trimmingCharacters(in: .whitespacesAndNewlines)

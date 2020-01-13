@@ -50,6 +50,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         userCollectionRef = Firestore.firestore().collection("users")
         
+        //logo to nav bar
+        _ = self.navigationController?.navigationBar
+               let logo = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+               logo.contentMode = .scaleAspectFit
+               let image = UIImage(named: "applicationImage")
+               logo.image = image
+               navigationItem.titleView = logo
+        
         //background
         view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
         
@@ -83,7 +91,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.firstnameLabel.text = self.trenutniKorisnik[0].firstName
                 self.usernameLabel.text = self.trenutniKorisnik[0].username
                 self.lastnameLabel.text = self.trenutniKorisnik[0].lastName
-                
             }
         }
     }
