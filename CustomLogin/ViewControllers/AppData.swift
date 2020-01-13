@@ -20,5 +20,8 @@ public class AppData {
     var sadasnjiLat :Double?
     var sadasnjiLon : Double?
     var selectedAdress: String?
+    var pomIme: String?
+    var pomeDesc: String?
+    var pomLoc: String?
     
 }

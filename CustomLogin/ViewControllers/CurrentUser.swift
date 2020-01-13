@@ -12,6 +12,7 @@ struct CurrentUser{
     
     static var shared = CurrentUser()
     
+    var uid: String?
     var profileEmail: String?
     var name: String?
     var surname: String?

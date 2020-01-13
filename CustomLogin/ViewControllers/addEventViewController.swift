@@ -38,6 +38,7 @@ class addEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
         
         //hide keyboard when clickout
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
@@ -45,8 +46,12 @@ class addEventViewController: UIViewController {
         
         //backgroundcolor
         view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
+=======
+>>>>>>> 90bc9cdfe83a3c9f96820acc3c4c3c99d230fe05
         
+        view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
         hostnameLabel.text = CurrentUser.shared.name
+        eventNameLabel.text = AppData.shared.pomIme
         startDateAndTime.inputView = datePicker
         eventNameLabel.becomeFirstResponder()
         locationLabel.text = AppData.shared.adresa
@@ -56,6 +61,7 @@ class addEventViewController: UIViewController {
     
     @objc func datePickerChanged(_ sender: UIDatePicker) {
          startDateAndTime.text = dateFormatter.string(from: sender.date)
+        
        
      }
     
@@ -90,6 +96,7 @@ class addEventViewController: UIViewController {
         print(AppData.shared.adresa!)
         AppData.shared.adresa = ""
         AppData.shared.selectedAdress = ""
+        AppData.shared.pomIme = ""
         self.transitionToHome()
         }
     }

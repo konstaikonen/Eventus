@@ -113,10 +113,20 @@ resultsViewController?.delegate = self
         let marker = GMSMarker(position:position)
         marker.tracksViewChanges = true
         marker.map = mapView
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-
-        let next = storyBoard.instantiateViewController(withIdentifier: "addEvent") as! addEventViewController
-        self.present(next, animated:true, completion:nil)
+        transitionToHome()
             }
+    
+    func transitionToHome(){
+
+           let nextViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.addEventViewController) as? addEventViewController
+           
+           view.window?.rootViewController = nextViewController
+           view.window?.makeKeyAndVisible()
+    
+           
+           
+           //self.performSegue(withIdentifier: "loginToProfile", sender: self)
+           
+       }
 
 }

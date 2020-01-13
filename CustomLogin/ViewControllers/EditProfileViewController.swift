@@ -17,6 +17,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     var trenutniKorisnik = [CurrentUser]()
     var userCollectionRef: CollectionReference!
+    let db = Firestore.firestore()
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var usernameEdit: UITextField!
@@ -30,6 +31,21 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        
+        db.collection("users").whereField("uid",isEqualTo: CurrentUser.shared.uid).getDocuments(){ (snapshot, error) in
+        if let error = error{
+            debugPrint("Eror se vraca")
+        }else{
+            let document = snapshot!.documents.first?.reference.updateData(["firstname": self.firstnameEdit.text])
+            let document1 = snapshot!.documents.first?.reference.updateData(["lastname": self.lastnameEdit.text])
+            let document2 = snapshot!.documents.first?.reference.updateData(["username": self.usernameEdit.text])
+            let document3 = snapshot!.documents.first?.reference.updateData(["email": self.emailEdit.text])
+            }
+        }
+        CurrentUser.shared.name = self.firstnameEdit.text
+        CurrentUser.shared.surname = self.lastnameEdit.text
+        CurrentUser.shared.profileEmail = self.emailEdit.text
+        CurrentUser.shared.profileUsername = self.usernameEdit.text
         let alert = UIAlertController(title: "Are you sure you want to save changes?", message: "", preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
@@ -41,6 +57,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         ))
         
         self.present(alert, animated: true, completion: nil)
+        transitionToHome()
     }
     
     override func viewDidLoad() {
@@ -111,4 +128,16 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
         dismiss(animated: true, completion: nil)
     }
+    func transitionToHome(){
+
+           let tabBarViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabBarViewController) as? TabBarViewController
+           
+           view.window?.rootViewController = tabBarViewController
+           view.window?.makeKeyAndVisible()
+    
+           
+           
+           //self.performSegue(withIdentifier: "loginToProfile", sender: self)
+           
+       }
 }

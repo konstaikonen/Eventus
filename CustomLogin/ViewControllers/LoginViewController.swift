@@ -153,6 +153,7 @@ class LoginViewController: UIViewController {
                                for document in snap.documents{
                                    
                                    let data = document.data()
+                                   let uid = data["uid"] as? String ?? "Anonymous"
                                    let firstName = data["firstname"] as? String ?? "Anonymous"
                                    let lastname = data["lastname"] as? String ?? "Anonymous"
                                    let username = data["username"] as? String ?? "Anonymous"
@@ -162,6 +163,7 @@ class LoginViewController: UIViewController {
                                     CurrentUser.shared.name = firstName
                                     CurrentUser.shared.surname =  lastname
                                     CurrentUser.shared.profileUsername = username
+                                    CurrentUser.shared.uid = uid
                                     self.jesiLoginan = true
                                     
                             }
