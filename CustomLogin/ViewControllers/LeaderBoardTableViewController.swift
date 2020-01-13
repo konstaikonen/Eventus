@@ -57,7 +57,7 @@ class LeaderBoardTableViewController: UITableViewController {
                 formatter.dateFormat = "MM-dd-yyyy' 'HH:mm"
                 
                   
-                if hostname == AppData.shared.profileEmail!{
+                if hostname == CurrentUser.shared.profileEmail!{
                       self.myEvents.append(name)
                       self.opisArray.append(opis)
                       self.datumArray.append(datum)

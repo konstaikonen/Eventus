@@ -153,9 +153,10 @@ class LoginViewController: UIViewController {
                                    let username = data["username"] as? String ?? "Anonymous"
                                    let emailBaza = data["email"] as? String ?? "Anonymous"
                                    if email == emailBaza {
-                                       AppData.shared.profileEmail = email
-                                    AppData.shared.name = firstName
-                                    AppData.shared.surname =  lastname
+                                    CurrentUser.shared.profileEmail = email
+                                    CurrentUser.shared.name = firstName
+                                    CurrentUser.shared.surname =  lastname
+                                    CurrentUser.shared.profileUsername = username
                                     self.jesiLoginan = true
                                     
                             }
@@ -169,7 +170,7 @@ class LoginViewController: UIViewController {
             if self.jesiLoginan == true{
                 let tabBarViewController = self.storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabBarViewController) as? TabBarViewController
                 
-                AppData.shared.profileEmail = email
+                CurrentUser.shared.profileEmail = email
                 
                 self.view.window?.rootViewController = tabBarViewController
                 self.view.window?.makeKeyAndVisible()

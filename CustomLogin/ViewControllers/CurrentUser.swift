@@ -10,17 +10,11 @@ import Foundation
 
 struct CurrentUser{
     
-    let firstName: String
-    let lastName: String
-    let username: String
-    let email: String
+    static var shared = CurrentUser()
     
-    init(firstName: String, lastName: String, username: String, email: String) {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.username = username
-        self.email = email
-    }
-    
+    var profileEmail: String?
+    var name: String?
+    var surname: String?
+    var profileUsername: String?
     
 }

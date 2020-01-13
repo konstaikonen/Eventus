@@ -13,9 +13,7 @@ public class AppData {
     static let shared = AppData()
     
     
-    var profileEmail: String?
-    var name: String?
-    var surname: String?
+    
     var latitude : Double?
     var longitude : Double?
     var adresa : String?

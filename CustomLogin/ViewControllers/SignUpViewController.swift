@@ -106,7 +106,7 @@ class SignUpViewController: UIViewController {
     func transitionToHome(){
         let tabBarViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabBarViewController) as? TabBarViewController
    
-        AppData.shared.profileEmail = pomocniEmail
+        CurrentUser.shared.profileEmail = pomocniEmail
         view.window?.rootViewController = tabBarViewController
         view.window?.makeKeyAndVisible()
       

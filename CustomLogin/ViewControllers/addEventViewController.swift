@@ -41,7 +41,7 @@ class addEventViewController: UIViewController {
         //backgroundcolor
         view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
         
-        hostnameLabel.text = AppData.shared.name
+        hostnameLabel.text = CurrentUser.shared.name
         startDateAndTime.inputView = datePicker
         eventNameLabel.becomeFirstResponder()
         locationLabel.text = AppData.shared.adresa
@@ -70,12 +70,14 @@ class addEventViewController: UIViewController {
     */
     
     
-
-    @IBAction func saveIt(_ sender: UIBarButtonItem) {
-        let eventName = eventNameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+    @IBAction func saveButton(_ sender: Any) {
+        var eventName = eventNameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let eventDescription = eventDescriptionLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let eventTime = startDateAndTime.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let hostname = AppData.shared.profileEmail!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let hostname = CurrentUser.shared.profileEmail!.trimmingCharacters(in: .whitespacesAndNewlines)
+        if eventName == "" || eventDescription == "" || eventTime == "" || AppData.shared.latitude == nil || AppData.shared.longitude == nil {
+            print("Ovo je error")
+        }else{
         let db = Firestore.firestore()
         db.collection("events").addDocument(data: ["name":eventName,"description":eventDescription,"date":eventTime,"hostname":hostname,"longitude":AppData.shared.longitude,"latitude":AppData.shared.latitude,"adress":AppData.shared.adresa])
         //Transition to home screen
@@ -83,6 +85,11 @@ class addEventViewController: UIViewController {
         AppData.shared.adresa = ""
         AppData.shared.selectedAdress = ""
         self.transitionToHome()
+        }
+    }
+    
+    @IBAction func saveIt(_ sender: UIBarButtonItem) {
+        
     }
     
      func transitionToHome(){
