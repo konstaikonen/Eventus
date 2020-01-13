@@ -46,6 +46,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //hide keyboard when click outside
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+            view.addGestureRecognizer(tap)
+        
         self.emailEdit.text = CurrentUser.shared.profileEmail
         self.firstnameEdit.text = CurrentUser.shared.name
         self.lastnameEdit.text = CurrentUser.shared.surname

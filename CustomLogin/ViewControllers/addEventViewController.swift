@@ -38,6 +38,11 @@ class addEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //hide keyboard when clickout
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+            view.addGestureRecognizer(tap)
+        
         //backgroundcolor
         view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
         
@@ -45,9 +50,9 @@ class addEventViewController: UIViewController {
         startDateAndTime.inputView = datePicker
         eventNameLabel.becomeFirstResponder()
         locationLabel.text = AppData.shared.adresa
-        // Do any additional setup after loading the view.
+
     }
-    
+
     
     @objc func datePickerChanged(_ sender: UIDatePicker) {
          startDateAndTime.text = dateFormatter.string(from: sender.date)
@@ -68,6 +73,7 @@ class addEventViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
     
     
     @IBAction func saveButton(_ sender: Any) {

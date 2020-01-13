@@ -24,8 +24,14 @@ class SignUpViewController: UIViewController {
     
     var pomocniEmail:String = ""
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //hide keyboard when clicking out
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
         
         setUpElements()
         firstNameTextField.becomeFirstResponder()

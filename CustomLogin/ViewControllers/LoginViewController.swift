@@ -31,9 +31,14 @@ class LoginViewController: UIViewController {
     var jesiLoginan :Bool?
     var userCollectionRef: CollectionReference!
     
+  
+    
     override func viewDidLoad() {
         jesiLoginan = true
         super.viewDidLoad()
+
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
         
         setUpElements()
         
@@ -205,6 +210,20 @@ class LoginViewController: UIViewController {
              paused = true
          }
 }
+ /*
+import UIKit
+extension UIViewController {
+func setupHideKeyBoardOnTap() {
+    self.view.addGestureRecognizer(self.endEditingRecognizer())
+    self.navigationController?.navigationBar.addGestureRecognizer(self.endEditingRecognizer())
+    }
+    private func endEditingRecognizer() -> UIGestureRecognizer {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        return tap
+    }
+}
+
     
 
-
+ */
