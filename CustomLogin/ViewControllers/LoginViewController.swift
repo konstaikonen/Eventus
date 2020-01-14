@@ -25,13 +25,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var appLogo: UIImageView!
-    //programmatically
+    
+    //programmatically added
     @IBOutlet var imageView: UIImageView!
     
     var jesiLoginan :Bool?
     var userCollectionRef: CollectionReference!
-    
-  
     
     override func viewDidLoad() {
         jesiLoginan = true
@@ -44,7 +43,6 @@ class LoginViewController: UIViewController {
         
         self.loginButton.layer.cornerRadius = 4
         self.signupButton.layer.cornerRadius = 4
-        emailTextField.becomeFirstResponder()
         
         //videobackground
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -74,7 +72,6 @@ class LoginViewController: UIViewController {
         self.imageView = UIImageView()
         imageView.frame = CGRect(x: 400, y: -20, width: 100, height: 100)
         view.addSubview(imageView)
-        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         self.imageView.isHidden = true
     }
     
@@ -92,12 +89,7 @@ class LoginViewController: UIViewController {
             self.imageView.isHidden = true
             view.backgroundColor = .clear
             avPlayerLayer.isHidden = false
-            
-           
-            
         }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

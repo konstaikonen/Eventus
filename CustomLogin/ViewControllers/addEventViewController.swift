@@ -50,6 +50,8 @@ class addEventViewController: UIViewController {
         view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
         hostnameLabel.text = CurrentUser.shared.name
         eventNameLabel.text = AppData.shared.pomIme
+        eventDescriptionLabel.text = AppData.shared.pomeDesc
+        startDateAndTime.text = AppData.shared.pomLoc
         startDateAndTime.inputView = datePicker
         eventNameLabel.becomeFirstResponder()
         locationLabel.text = AppData.shared.adresa
@@ -95,7 +97,9 @@ class addEventViewController: UIViewController {
         AppData.shared.adresa = ""
         AppData.shared.selectedAdress = ""
         AppData.shared.pomIme = ""
-        self.transitionToHome()
+            AppData.shared.pomeDesc = ""
+            AppData.shared.pomLoc = ""
+            transitionToHome()
         }
     }
     
@@ -115,6 +119,17 @@ class addEventViewController: UIViewController {
            //self.performSegue(withIdentifier: "loginToProfile", sender: self)
            
        }
+    @IBAction func openMapsButton(_ sender: Any) {
+        performSegue(withIdentifier: "goToMaps", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToMaps"{
+            AppData.shared.pomIme = eventNameLabel.text
+            AppData.shared.pomeDesc = eventDescriptionLabel.text
+            AppData.shared.pomLoc = startDateAndTime.text
+        }
+    }
     
     
 }

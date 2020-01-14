@@ -50,6 +50,7 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
         override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         locationManager = CLLocationManager()
         locationManager!.delegate = self
         locationManager!.requestWhenInUseAuthorization()

@@ -24,8 +24,6 @@ class SignUpViewController: UIViewController {
     
     var pomocniEmail:String = ""
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,10 +32,10 @@ class SignUpViewController: UIViewController {
         view.addGestureRecognizer(tap)
         
         setUpElements()
-        firstNameTextField.becomeFirstResponder()
         //modify
         self.imageBack.layer.opacity = 0.8
         self.signUpButton.layer.cornerRadius = 4
+    
     }
     
     func setUpElements(){
@@ -117,7 +115,5 @@ class SignUpViewController: UIViewController {
         view.window?.makeKeyAndVisible()
       
         //self.performSegue(withIdentifier: "loginToProfile", sender: self)
-        
     }
-    
 }
