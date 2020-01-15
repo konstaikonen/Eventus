@@ -19,7 +19,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var usernameLabel: UITextField!
-    @IBOutlet weak var viewBackground: UIView!
     @IBOutlet weak var imageBack: UIImageView!
     
     var pomocniEmail:String = ""

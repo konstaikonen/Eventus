@@ -162,9 +162,7 @@
                         <outlet property="lastNameTextField" destination="Q7E-mH-jkt" id="3YD-HB-opg"/>
                         <outlet property="passwordTextField" destination="Gfg-bi-2wF" id="0Gd-9k-xxt"/>
                         <outlet property="signUpButton" destination="QJ9-yx-eha" id="DEN-1y-znm"/>
-                        <outlet property="stack" destination="U6f-J4-PbX" id="ndT-BJ-pVn"/>
                         <outlet property="usernameLabel" destination="cep-9v-9Di" id="n3i-yh-534"/>
-                        <outlet property="viewBackground" destination="SXL-l5-SEy" id="dhM-25-zca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOk-Na-bf7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -281,7 +279,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applicationImage" translatesAutoresizingMaskIntoConstraints="NO" id="phd-cF-3AT">
-                                <rect key="frame" x="108" y="44" width="198" height="200"/>
+                                <rect key="frame" x="108" y="44" width="198" height="400"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
