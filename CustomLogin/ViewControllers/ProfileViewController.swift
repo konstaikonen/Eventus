@@ -34,6 +34,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         alert.addAction(UIAlertAction(title: "Log out", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
             self.performSegue(withIdentifier: "logOut", sender: self)
             
+            
         }
         ))
         
