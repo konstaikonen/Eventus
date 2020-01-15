@@ -61,6 +61,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //profilepicture round
         
         //hide keyboard when click outside
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
@@ -70,7 +71,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.firstnameEdit.text = CurrentUser.shared.name
         self.lastnameEdit.text = CurrentUser.shared.surname
         self.usernameEdit.text = CurrentUser.shared.profileUsername
-        usernameEdit.becomeFirstResponder()
         //modify background
         view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
         
@@ -78,7 +78,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.photoImageView.clipsToBounds = true
         self.photoImageView.layer.cornerRadius = photoImageView.frame.size.width / 2
     }
-    
     
     /*
     // MARK: - Navigation

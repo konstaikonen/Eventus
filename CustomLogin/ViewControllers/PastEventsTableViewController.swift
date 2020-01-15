@@ -57,6 +57,7 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
                 controller.searchBar.sizeToFit()
                 controller.searchBar.delegate = self
                 tableView.tableHeaderView = controller.searchBar
+                controller.searchBar.barTintColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
                 return controller
             })()
         

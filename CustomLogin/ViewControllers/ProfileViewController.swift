@@ -25,7 +25,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var detailsStack: UIStackView!
     @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var stackBack: UIImageView!
     
     
     @IBAction func logoutButton(_ sender: UIButton) {
@@ -51,6 +50,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         userCollectionRef = Firestore.firestore().collection("users")
         
+        //hide keyboard when click out
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+        
         //logo to nav bar
         _ = self.navigationController?.navigationBar
                let logo = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
@@ -65,33 +68,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         //modify profile picture
                self.photoImageView.layer.cornerRadius = 8
                self.photoImageView.clipsToBounds = true
-        
     }
 
-    
     override func viewDidAppear(_ animated: Bool) {
         self.emailLabel.text = CurrentUser.shared.profileEmail
         self.firstnameLabel.text = CurrentUser.shared.name
         self.usernameLabel.text = CurrentUser.shared.profileUsername
         self.lastnameLabel.text = CurrentUser.shared.surname
                 
-            }
-        }
-    
-    
-    
-
-    
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
-
+}

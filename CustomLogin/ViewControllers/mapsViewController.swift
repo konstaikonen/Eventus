@@ -69,7 +69,7 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
     func setupSearchController(){
       
         resultsViewController = GMSAutocompleteResultsViewController()
-resultsViewController?.delegate = self
+        resultsViewController?.delegate = self
         //resultsViewController?.autocompleteBounds
         let neBoundsCorner = CLLocationCoordinate2D(latitude: 39.747457,
                                                     longitude: -8.807676)
@@ -118,12 +118,12 @@ resultsViewController?.delegate = self
             }
     
     func transitionToHome(){
-
-           let nextViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.addEventViewController) as? addEventViewController
+        
+        let nextViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.addEventViewController) as? addEventViewController
            
            view.window?.rootViewController = nextViewController
            view.window?.makeKeyAndVisible()
-    
+        
            
            
            //self.performSegue(withIdentifier: "loginToProfile", sender: self)

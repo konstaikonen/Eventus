@@ -80,6 +80,10 @@ class addEventViewController: UIViewController {
     }
     */
     
+    @IBAction func cancelButton(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
+
+    }
     
     
     @IBAction func saveButton(_ sender: Any) {

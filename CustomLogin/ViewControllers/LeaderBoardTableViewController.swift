@@ -120,13 +120,9 @@ class LeaderBoardTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete{
+            
             //call alert before deleting
-            
-            
             deleteEventAlert(deleteNumber: indexPath)
-            
-            
-            
         }
 
     }
