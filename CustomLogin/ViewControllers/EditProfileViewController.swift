@@ -31,7 +31,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        
         db.collection("users").whereField("uid",isEqualTo: CurrentUser.shared.uid).getDocuments(){ (snapshot, error) in
         if let error = error{
             debugPrint("Eror se vraca")

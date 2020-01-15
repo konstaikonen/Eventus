@@ -110,6 +110,9 @@ class SignUpViewController: UIViewController {
         let tabBarViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabBarViewController) as? TabBarViewController
    
         CurrentUser.shared.profileEmail = pomocniEmail
+        CurrentUser.shared.name = firstNameTextField.text
+        CurrentUser.shared.surname = lastNameTextField.text
+        CurrentUser.shared.profileUsername = usernameLabel.text
         view.window?.rootViewController = tabBarViewController
         view.window?.makeKeyAndVisible()
       

@@ -15,11 +15,13 @@ import FirebaseAuth
 
 class LeaderBoardTableViewController: UITableViewController {
     
+    let db = Firestore.firestore()
     var finalName = "Patrik"
     var selectedRow: Int?
     var userCollectionRef: CollectionReference!
     var opisArray = [String]()
     var datumArray = [String]()
+    var idArray = [String]()
     var myEvents = [String]()
     var myLon = [Double]()
     var myLat = [Double]()
@@ -44,8 +46,9 @@ class LeaderBoardTableViewController: UITableViewController {
           }else{
               guard let snap = snapshot else { return }
               for document in snap.documents{
-                      
+            
                 let data = document.data()
+                let id = document.documentID
                 let name = data["name"] as? String ?? "Anonymous"
                 let hostname = data["hostname"] as? String ?? "Anonymous"
                 let opis = data["description"] as? String ?? "Anonymous"
@@ -64,6 +67,7 @@ class LeaderBoardTableViewController: UITableViewController {
                     self.myLat.append(latitude!)
                     self.myLon.append(longitude!)
                     self.myAdress.append(adresa)
+                    self.idArray.append(id)
                       print(name)
                   }
                   
@@ -117,20 +121,26 @@ class LeaderBoardTableViewController: UITableViewController {
         
         if editingStyle == .delete{
             //call alert before deleting
-            deleteEventAlert()
             
-            myEvents.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .bottom)
+            
+            deleteEventAlert(deleteNumber: indexPath)
+            
+            
             
         }
 
     }
 
     //alert before deleting
-    func deleteEventAlert(){
+    func deleteEventAlert(deleteNumber: IndexPath){
           let alert = UIAlertController(title: "Delete Event?", message: "", preferredStyle: UIAlertController.Style.alert)
           
           alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            self.myEvents.remove(at: deleteNumber.row)
+            self.tableView.deleteRows(at: [deleteNumber], with: .bottom)
+            self.db.collection("events").document(self.idArray[deleteNumber.row]).delete()
+            print("Deletano je")
+            
           }
           ))
           
