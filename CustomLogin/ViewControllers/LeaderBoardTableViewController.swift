@@ -45,12 +45,12 @@ class LeaderBoardTableViewController: UITableViewController {
               guard let snap = snapshot else { return }
               for document in snap.documents{
                       
-                  let data = document.data()
-                  let name = data["name"] as? String ?? "Anonymous"
-                  let hostname = data["hostname"] as? String ?? "Anonymous"
+                let data = document.data()
+                let name = data["name"] as? String ?? "Anonymous"
+                let hostname = data["hostname"] as? String ?? "Anonymous"
                 let opis = data["description"] as? String ?? "Anonymous"
                 let datum = data["date"] as? String ?? "Anonymous"
-                 let latitude = data["latitude"] as? Double
+                let latitude = data["latitude"] as? Double
                 let longitude = data["longitude"] as? Double
                 let adresa = data["adress"] as? String ?? "Anonymous"
                 let formatter = DateFormatter()
@@ -95,16 +95,13 @@ class LeaderBoardTableViewController: UITableViewController {
        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            
            let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath)
-       
            let(events) = myEvents[indexPath.row]
-
-        
            cell.textLabel?.text = events
+        
            // Add date to "Subtitle"
-           // cell.detailTextLabel?.text =
+           //cell.detailTextLabel?.text =
         
            return cell
-    
        }
        
        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -114,7 +111,36 @@ class LeaderBoardTableViewController: UITableViewController {
            selectedRow = indexPath.row
            self.performSegue(withIdentifier: "showyourdetail", sender: self)
        }
+    
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
+            //call alert before deleting
+            deleteEventAlert()
+            
+            myEvents.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .bottom)
+            
+        }
 
+    }
+
+    //alert before deleting
+    func deleteEventAlert(){
+          let alert = UIAlertController(title: "Delete Event?", message: "", preferredStyle: UIAlertController.Style.alert)
+          
+          alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+          }
+          ))
+          
+          alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+                }
+          ))
+          
+          self.present(alert, animated: true, completion: nil)
+        
+      }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            print("uslo u prepare")
