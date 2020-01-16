@@ -93,7 +93,7 @@ class addEventViewController: UIViewController {
             print("Ovo je error")
         }else{
         let db = Firestore.firestore()
-        db.collection("events").addDocument(data: ["name":eventName,"description":eventDescription,"date":eventTime,"hostname":hostname,"longitude":AppData.shared.longitude,"latitude":AppData.shared.latitude,"adress":AppData.shared.adresa])
+            db.collection("events").addDocument(data: ["name":eventName,"description":eventDescription,"date":eventTime,"hostname":hostname,"longitude":AppData.shared.longitude,"latitude":AppData.shared.latitude,"adress":AppData.shared.adresa,"username":CurrentUser.shared.profileUsername])
         //Transition to home screen
         print(AppData.shared.adresa!)
         AppData.shared.adresa = ""

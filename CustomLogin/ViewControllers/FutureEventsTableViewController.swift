@@ -20,9 +20,10 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
     @IBOutlet weak var mapView: MKMapView!
     
     
-    var finalName = "Patrik"
+    
     
     var userCollectionRef: CollectionReference!
+    var finalName = [String]()
     var futureEvents = [String]()
     var opisArray = [String]()
     var datumArray = [String]()
@@ -54,6 +55,7 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
                     let data = document.data()
                     let name = data["name"] as? String ?? "Anonymous"
                     let opis = data["description"] as? String ?? "Anonymous"
+                    let hostname = data["username"] as? String ?? "Anonymous"
                     let datum = data["date"] as? String ?? "Anonymous"
                     let adresa = data["adress"] as? String ?? "Anonymous"
                     let formatter = DateFormatter()
@@ -65,6 +67,7 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
                     
                     if datumDateType?.compare(danasnjiDatumDateType!) == .orderedDescending{
                         self.futureEvents.append(name)
+                        self.finalName.append(hostname)
                         self.opisArray.append(opis)
                         self.datumArray.append(datum)
                         self.myLat.append(latitude!)
@@ -141,6 +144,7 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
     
         let(events) = futureEvents [indexPath.row]
         cell.textLabel?.text = events
+        cell.detailTextLabel?.text = datumArray[indexPath.row]
         
         return cell
  
@@ -168,7 +172,7 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
           if segue.identifier == "showdetail"{
             print("uslo u if")
            let destView = segue.destination as! EventInfoViewController
-            destView.name = self.finalName
+            destView.name = self.finalName[selectedRow!]
             destView.eventName = self.futureEvents[selectedRow ?? 0]
             destView.dec = self.opisArray[selectedRow ?? 0]
             destView.date = self.datumArray[selectedRow ?? 0]
