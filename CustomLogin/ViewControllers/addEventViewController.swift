@@ -133,5 +133,14 @@ class addEventViewController: UIViewController {
         }
     }
     
+    @IBAction func cancelCreateEvent(_ sender: Any) {
+        let tabBarViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabBarViewController) as? TabBarViewController
+           
+           view.window?.rootViewController = tabBarViewController
+           view.window?.makeKeyAndVisible()
+        
+           
+        
+    }
     
 }
