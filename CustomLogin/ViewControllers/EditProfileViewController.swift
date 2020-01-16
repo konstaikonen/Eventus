@@ -79,6 +79,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.photoImageView.layer.cornerRadius = photoImageView.frame.size.width / 2
     }
     
+     override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+         //hide when landscape
+         if toInterfaceOrientation == .landscapeLeft || toInterfaceOrientation == .landscapeRight {
+            self.photoImageView.layer.cornerRadius = 40
+
+         } else {
+            self.photoImageView.layer.cornerRadius = 100
+         }
+     }
     /*
     // MARK: - Navigation
 

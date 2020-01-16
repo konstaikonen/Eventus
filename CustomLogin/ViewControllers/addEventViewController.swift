@@ -34,11 +34,13 @@ class addEventViewController: UIViewController {
                formatter.dateFormat = "MM-dd-yyyy' 'HH:mm"
               return formatter
     }()
+    //back button programmatically
 
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         //hide keyboard when clickout
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
             view.addGestureRecognizer(tap)
@@ -58,7 +60,7 @@ class addEventViewController: UIViewController {
 
     }
 
-    
+
     @objc func datePickerChanged(_ sender: UIDatePicker) {
          startDateAndTime.text = dateFormatter.string(from: sender.date)
         
@@ -80,10 +82,6 @@ class addEventViewController: UIViewController {
     }
     */
     
-    @IBAction func cancelButton(_ sender: Any) {
-        navigationController?.popToRootViewController(animated: true)
-
-    }
     
     
     @IBAction func saveButton(_ sender: Any) {
