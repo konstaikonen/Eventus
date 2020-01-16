@@ -79,15 +79,15 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
                     
                 }
                 //print(self.futureEvents.count)
-                                                                                                                
+                                                                            
+                // hide progress view
+                self.tableView.reloadData()
+                activityIndicatorView.stopAnimating()
+                
                 //Add annotation pins on map
                 self.addPins()
                 //Show all annotations
                 self.mapView.showAnnotations(self.mapView.annotations, animated: true)
-                
-                // hide progress view
-                self.tableView.reloadData()
-                activityIndicatorView.stopAnimating()
             }
         }
         
@@ -103,7 +103,7 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
         }
         
     }
-    
+   
 
     //viewFor method converts annotation into a view that can be displayed on the map
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -117,8 +117,10 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
             annotationView!.canShowCallout = true
         } else {
             annotationView!.annotation = annotation
+            //Show all annotations, no priority
+            annotationView?.displayPriority = .required
         }
-        annotationView?.displayPriority = .required
+        
         return annotationView
     }
 
