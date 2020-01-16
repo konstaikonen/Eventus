@@ -139,6 +139,12 @@ class LeaderBoardTableViewController: UITableViewController {
             self.tableView.deleteRows(at: [deleteNumber], with: .bottom)
             self.db.collection("events").document(self.idArray[deleteNumber.row]).delete()
             print("Deletano je")
+            let tabBarViewController = self.storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabBarViewController) as? TabBarViewController
+                   
+            self.view.window?.rootViewController = tabBarViewController
+            self.view.window?.makeKeyAndVisible()
+            
+                   
             
           }
           ))

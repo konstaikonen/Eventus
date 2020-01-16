@@ -670,7 +670,7 @@
         <!--Event Info-->
         <scene sceneID="PDz-9p-YCR">
             <objects>
-                <viewController title="Event Info" id="FUB-ju-rcH" customClass="EventInfoViewController" customModule="CustomLogin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Event Info" hidesBottomBarWhenPushed="YES" id="FUB-ju-rcH" customClass="EventInfoViewController" customModule="CustomLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xMy-ji-ZYU"/>
                         <viewControllerLayoutGuide type="bottom" id="dMh-Nk-EL7"/>
