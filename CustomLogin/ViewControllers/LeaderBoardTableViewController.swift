@@ -51,6 +51,7 @@ class LeaderBoardTableViewController: UITableViewController {
                 let id = document.documentID
                 let name = data["name"] as? String ?? "Anonymous"
                 let hostname = data["username"] as? String ?? "Anonymous"
+                let username = data["hostname"] as? String ?? "Anonymous"
                 let opis = data["description"] as? String ?? "Anonymous"
                 let datum = data["date"] as? String ?? "Anonymous"
                 let latitude = data["latitude"] as? Double
@@ -60,7 +61,7 @@ class LeaderBoardTableViewController: UITableViewController {
                 formatter.dateFormat = "MM-dd-yyyy' 'HH:mm"
                 
                   
-                if hostname == CurrentUser.shared.profileEmail!{
+                if username == CurrentUser.shared.profileEmail!{
                       self.myEvents.append(name)
                     self.finalName.append(hostname)
                       self.opisArray.append(opis)
