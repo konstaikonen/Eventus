@@ -106,6 +106,7 @@ class FutureEventsTableViewController: UITableViewController {
     
         let(events) = futureEvents [indexPath.row]
         cell.textLabel?.text = events
+        cell.detailTextLabel?.text = datumArray[indexPath.row]
         
         return cell
  

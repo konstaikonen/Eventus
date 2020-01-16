@@ -130,10 +130,12 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
       
         if (resultSearchController.isActive) {
             cell.textLabel?.text = filteredTableData[indexPath.row]
+            cell.detailTextLabel?.text = datumArray[indexPath.row]
             return cell
         }
         else {
             cell.textLabel?.text = tableData[indexPath.row]
+            cell.detailTextLabel?.text = datumArray[indexPath.row]
             print(tableData[indexPath.row])
             return cell
         }
