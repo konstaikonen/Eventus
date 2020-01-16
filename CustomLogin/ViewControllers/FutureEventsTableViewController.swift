@@ -10,12 +10,14 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import MapKit
 
 
 
-class FutureEventsTableViewController: UITableViewController {
+class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate {
     
     @IBOutlet weak var navigationBar: UINavigationItem!
+    @IBOutlet weak var mapView: MKMapView!
     
     
     var finalName = "Patrik"
@@ -69,10 +71,16 @@ class FutureEventsTableViewController: UITableViewController {
                         self.myLon.append(longitude!)
                         self.myAdress.append(adresa)
                         print(name)
+                      
                     }
                     
                 }
                 //print(self.futureEvents.count)
+                                                                                                                
+                //Add annotation pins on map
+                self.addPins()
+                //Show all annotations
+                self.mapView.showAnnotations(self.mapView.annotations, animated: true)
                 
                 // hide progress view
                 self.tableView.reloadData()
@@ -82,8 +90,34 @@ class FutureEventsTableViewController: UITableViewController {
         
     }
     
-  
+    //MARK: - MapView related
+    func addPins() {
+        for i in 0..<futureEvents.count {
+            let event = MKPointAnnotation()
+            event.title = futureEvents[i]
+            event.coordinate = CLLocationCoordinate2D(latitude: myLat[i], longitude: myLon[i])
+            mapView.addAnnotation(event)
+        }
+        
+    }
     
+
+    //viewFor method converts annotation into a view that can be displayed on the map
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+
+        let identifier = "Annotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView!.canShowCallout = true
+        } else {
+            annotationView!.annotation = annotation
+        }
+        annotationView?.displayPriority = .required
+        return annotationView
+    }
 
     // MARK: - Table view data source
 
@@ -93,7 +127,8 @@ class FutureEventsTableViewController: UITableViewController {
         
     }
 
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return futureEvents.count

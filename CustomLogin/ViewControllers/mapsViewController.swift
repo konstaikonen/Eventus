@@ -118,7 +118,7 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
             }
     
     func transitionToHome(){
-        
+
         let nextViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.addEventViewController) as? addEventViewController
            
            view.window?.rootViewController = nextViewController

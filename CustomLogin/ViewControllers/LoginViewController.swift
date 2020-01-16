@@ -35,7 +35,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         jesiLoginan = true
         super.viewDidLoad()
-
+        
+        //hide keyboard when click out
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         
@@ -44,28 +45,8 @@ class LoginViewController: UIViewController {
         self.loginButton.layer.cornerRadius = 4
         self.signupButton.layer.cornerRadius = 4
         
-        //videobackground
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
-              self.navigationController!.navigationBar.shadowImage = UIImage()
-              self.navigationController!.navigationBar.isTranslucent = true
-              //video background
-              let theURL = Bundle.main.url(forResource:"giphy", withExtension: ".mp4")
-              avPlayer = AVPlayer(url: theURL!)
-              avPlayerLayer = AVPlayerLayer(player: avPlayer)
-              avPlayerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-              avPlayer.volume = 0
-              avPlayer.actionAtItemEnd = .none
-              avPlayerLayer.frame = view.layer.bounds
-              avPlayerLayer.opacity = 0.8
-              view.backgroundColor = .clear
-              view.layer.insertSublayer(avPlayerLayer, at: 0)
-              
-              NotificationCenter.default.addObserver(self,
-                                                     selector: #selector(playerItemDidReachEnd(notification:)),
-                                                     name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-                                                     object: avPlayer.currentItem)
-
-            //logo for horizontal view
+      
+        //logo for horizontal view
         let imageName = "applicationImage.png"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
@@ -73,23 +54,61 @@ class LoginViewController: UIViewController {
         imageView.frame = CGRect(x: 400, y: -20, width: 100, height: 100)
         view.addSubview(imageView)
         self.imageView.isHidden = true
+        
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.isTranslucent = true
+        
+        //videobackground
+        let theURL = Bundle.main.url(forResource:"giphy", withExtension: ".mp4")
+        avPlayer = AVPlayer(url: theURL!)
+        avPlayerLayer = AVPlayerLayer(player: avPlayer)
+        avPlayerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        avPlayer.volume = 0
+        avPlayer.actionAtItemEnd = .none
+        avPlayerLayer.frame = view.layer.bounds
+        avPlayerLayer.opacity = 0.8
+        view.backgroundColor = .clear
+        view.layer.insertSublayer(avPlayerLayer, at: 0)
+        NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: avPlayer.currentItem)
+        
+        // In what orientation view opens
+        if UIDevice.current.orientation.isLandscape {
+            landscape()
+        } else {
+            portrait()
+        }
+        reloadInputViews()
+        
+    }
+    
+    
+    func landscape() {
+        avPlayerLayer.isHidden = true
+        view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
+        self.appLogo.isHidden = true
+        self.imageView.isHidden = false
+    }
+    
+    func portrait() {
+        self.appLogo.isHidden = false
+        self.imageView.isHidden = true
+        view.backgroundColor = .clear
+        avPlayerLayer.isHidden = false
     }
     
     override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-
-        //hide when landscape
         if toInterfaceOrientation == .landscapeLeft || toInterfaceOrientation == .landscapeRight {
-        avPlayerLayer.isHidden = true
-        view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
-            self.appLogo.isHidden = true
-            self.imageView.isHidden = false
-
+            landscape()
         } else {
-            self.appLogo.isHidden = false
-            self.imageView.isHidden = true
-            view.backgroundColor = .clear
-            avPlayerLayer.isHidden = false
+            portrait()
         }
+    }
+    
+    
+    override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+         self.view.setNeedsUpdateConstraints()
+         avPlayerLayer.frame = view.layer.bounds
     }
     
     override func viewWillAppear(_ animated: Bool) {

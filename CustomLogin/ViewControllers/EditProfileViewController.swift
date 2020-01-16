@@ -61,8 +61,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //profilepicture round
-        
         //hide keyboard when click outside
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
             view.addGestureRecognizer(tap)
@@ -79,6 +77,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.photoImageView.layer.cornerRadius = photoImageView.frame.size.width / 2
     }
     
+     override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+         //hide when landscape
+         if toInterfaceOrientation == .landscapeLeft || toInterfaceOrientation == .landscapeRight {
+            self.photoImageView.layer.cornerRadius = 40
+
+         } else {
+            self.photoImageView.layer.cornerRadius = 100
+         }
+     }
     /*
     // MARK: - Navigation
 
