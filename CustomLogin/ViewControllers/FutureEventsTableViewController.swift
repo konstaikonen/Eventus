@@ -46,11 +46,11 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
         
         userCollectionRef = Firestore.firestore().collection("events")
         userCollectionRef.getDocuments { (snapshot, error) in
-            if let error = error{
-                debugPrint("Eror se vraca")
-            }else{
-                guard let snap = snapshot else { return }
-                for document in snap.documents{
+        if let error = error{
+            debugPrint("Eror se vraca")
+        }else{
+            guard let snap = snapshot else { return }
+            for document in snap.documents{
                         
                     let data = document.data()
                     let name = data["name"] as? String ?? "Anonymous"
@@ -77,20 +77,22 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
                       
                     }
                     
-                }
+            }
                 //print(self.futureEvents.count)
-                                                                            
-                // hide progress view
-                self.tableView.reloadData()
-                activityIndicatorView.stopAnimating()
-                
+            
                 //Add annotation pins on map
                 self.addPins()
                 //Show all annotations
                 self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+                
+                // hide progress view
+                self.tableView.reloadData()
+                activityIndicatorView.stopAnimating()
+                
+                
+                
             }
         }
-        
     }
     
     //MARK: - MapView related
@@ -117,10 +119,8 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
             annotationView!.canShowCallout = true
         } else {
             annotationView!.annotation = annotation
-            //Show all annotations, no priority
-            annotationView?.displayPriority = .required
         }
-        
+        annotationView?.displayPriority = .required
         return annotationView
     }
 
