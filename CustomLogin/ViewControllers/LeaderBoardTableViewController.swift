@@ -16,7 +16,7 @@ import FirebaseAuth
 class LeaderBoardTableViewController: UITableViewController {
     
     let db = Firestore.firestore()
-    var finalName = "Patrik"
+    var finalName = [String]()
     var selectedRow: Int?
     var userCollectionRef: CollectionReference!
     var opisArray = [String]()
@@ -50,7 +50,7 @@ class LeaderBoardTableViewController: UITableViewController {
                 let data = document.data()
                 let id = document.documentID
                 let name = data["name"] as? String ?? "Anonymous"
-                let hostname = data["hostname"] as? String ?? "Anonymous"
+                let hostname = data["username"] as? String ?? "Anonymous"
                 let opis = data["description"] as? String ?? "Anonymous"
                 let datum = data["date"] as? String ?? "Anonymous"
                 let latitude = data["latitude"] as? Double
@@ -62,6 +62,7 @@ class LeaderBoardTableViewController: UITableViewController {
                   
                 if hostname == CurrentUser.shared.profileEmail!{
                       self.myEvents.append(name)
+                    self.finalName.append(hostname)
                       self.opisArray.append(opis)
                       self.datumArray.append(datum)
                     self.myLat.append(latitude!)
@@ -154,7 +155,7 @@ class LeaderBoardTableViewController: UITableViewController {
              if segue.identifier == "showyourdetail"{
                print("uslo u if")
               let destView = segue.destination as! EventInfoViewController
-               destView.name = self.finalName
+                destView.name = self.finalName[selectedRow!]
                 destView.eventName = self.myEvents[selectedRow!]
                 destView.dec = self.opisArray[selectedRow!]
                 destView.date = self.datumArray[selectedRow!]

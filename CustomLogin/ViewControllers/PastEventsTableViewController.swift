@@ -32,7 +32,7 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
             self.tableView.reloadData()
     }
     
-    var finalName = "Patrik"
+    var finalName = [String]()
     var tableData = [String]()
     var userCollectionRef: CollectionReference!
     var futureEvents = [String]()
@@ -79,6 +79,7 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
                           let data = document.data()
                            let name = data["name"] as? String ?? "Anonymous"
                            let opis = data["description"] as? String ?? "Anonymous"
+                        let hostname = data["username"] as? String ?? "Anonymous"
                             let adresa = data["adress"] as? String ?? "Anonymous"
                            let datum = data["date"] as? String ?? "Anonymous"
                            let formatter = DateFormatter()
@@ -90,6 +91,7 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
                            if datumDateType?.compare(danasnjiDatumDateType!) == .orderedAscending{
                                 self.futureEvents.append(name)
                                 self.opisArray.append(opis)
+                            self.finalName.append(hostname)
                                 self.datumArray.append(datum)
                                self.tableData.append(name)
                             self.myAdress.append(adresa)//konsta!
@@ -153,7 +155,7 @@ class PastEventsTableViewController: UITableViewController, UISearchResultsUpdat
        if segue.identifier == "showdetails"{
          print("uslo u if")
         let destView = segue.destination as! EventInfoViewController
-         destView.name = self.finalName
+         destView.name = self.finalName[selectedRow!]
         destView.eventName = self.tableData[selectedRow!]
         destView.dec = self.opisArray[selectedRow!]
         destView.date = self.datumArray[selectedRow!]
