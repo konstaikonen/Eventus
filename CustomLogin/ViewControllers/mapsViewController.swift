@@ -55,9 +55,9 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
         locationManager!.requestWhenInUseAuthorization()
 
         let camera = GMSCameraPosition.camera(withLatitude: 39.747457, longitude: -8.807676, zoom: 9.0)
-        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         
-        view = mapView
+        self.view.addSubview(mapView!)
         setupSearchController()
     }
    
@@ -83,6 +83,7 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
          searchController?.searchBar.sizeToFit()
          searchController?.hidesNavigationBarDuringPresentation = false
          definesPresentationContext = true
+         
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
@@ -107,9 +108,12 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
         let searchBar = searchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = place.formattedAddress
+
         }
+
     
-    
+     
+     
     func transitionToHome(){
         dismiss(animated: true, completion: nil)
 
@@ -119,7 +123,7 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
            view.window?.makeKeyAndVisible()
            //self.performSegue(withIdentifier: "loginToProfile", sender: self)
          */
-       }
+    }
 
     @IBAction func cancelButton(_ sender: Any) {
         transitionToHome()
