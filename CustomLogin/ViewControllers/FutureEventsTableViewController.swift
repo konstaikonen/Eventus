@@ -19,9 +19,6 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var mapView: MKMapView!
     
-    
-    
-    
     var userCollectionRef: CollectionReference!
     var finalName = [String]()
     var futureEvents = [String]()
@@ -32,8 +29,9 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
     var myLat = [Double]()
     var myAdress = [String]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
         //set background color
         view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
       

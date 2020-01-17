@@ -80,16 +80,16 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.searchResultsUpdater = resultsViewController
         
-        
-        let searchBar = searchController!.searchBar
-        searchBar.sizeToFit()
-        searchBar.placeholder = "Search for places"
-        navigationItem.titleView = searchController?.searchBar
-        
-       
+        let searchBar = UIView(frame: CGRect(x: 0, y: 40.0, width: 350.0, height: 45.0))
+
+         searchBar.addSubview((searchController?.searchBar)!)
+         view.addSubview(searchBar)
+         searchController?.searchBar.sizeToFit()
+         searchController?.hidesNavigationBarDuringPresentation = false
+         definesPresentationContext = true
+          
         definesPresentationContext = true
         searchController?.hidesNavigationBarDuringPresentation = false
-         print(searchBar.text)
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
@@ -114,20 +114,29 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
         let marker = GMSMarker(position:position)
         marker.tracksViewChanges = true
         marker.map = mapView
-        transitionToHome()
+        let searchBar = searchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = place.formattedAddress
             }
     
+    
     func transitionToHome(){
+        dismiss(animated: true, completion: nil)
 
+        /* Cancel and go home old way
         let nextViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.addEventViewController) as? addEventViewController
-           
            view.window?.rootViewController = nextViewController
            view.window?.makeKeyAndVisible()
-        
-           
-           
            //self.performSegue(withIdentifier: "loginToProfile", sender: self)
-           
+         */
        }
 
+    @IBAction func cancelButton(_ sender: Any) {
+        transitionToHome()
+    }
+    
+    
+    @IBAction func saveButton(_ sender: Any) {
+        transitionToHome()
+    }
 }
