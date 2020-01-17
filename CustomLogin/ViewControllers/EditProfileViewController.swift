@@ -24,6 +24,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var firstnameEdit: UITextField!
     @IBOutlet weak var lastnameEdit: UITextField!
     @IBOutlet weak var emailEdit: UITextField!
+    @IBOutlet weak var scrollView: UIView!
     
     @IBAction func closeEdit(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -65,6 +66,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
             view.addGestureRecognizer(tap)
         
+        //hide scrollview background
+        scrollView.backgroundColor = .clear
         self.emailEdit.text = CurrentUser.shared.profileEmail
         self.firstnameEdit.text = CurrentUser.shared.name
         self.lastnameEdit.text = CurrentUser.shared.surname
