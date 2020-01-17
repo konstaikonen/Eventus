@@ -47,22 +47,17 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
       // 7
       mapView?.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
     }
-        override func viewDidLoad() {
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         locationManager = CLLocationManager()
         locationManager!.delegate = self
         locationManager!.requestWhenInUseAuthorization()
-        // Do any additional setup after loading the view.
-        //resultsViewController?.delegate = self
-        //setupSearchController()
 
         let camera = GMSCameraPosition.camera(withLatitude: 39.747457, longitude: -8.807676, zoom: 9.0)
-       mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         
         view = mapView
-        
         setupSearchController()
     }
    
@@ -70,6 +65,7 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
       
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self
+
         //resultsViewController?.autocompleteBounds
         let neBoundsCorner = CLLocationCoordinate2D(latitude: 39.747457,
                                                     longitude: -8.807676)
@@ -80,24 +76,18 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.searchResultsUpdater = resultsViewController
         
-        let searchBar = UIView(frame: CGRect(x: 0, y: 40.0, width: 350.0, height: 45.0))
-
+         let searchBar = UIView(frame: CGRect(x: 0, y: 45.0, width: 350.0, height: 45.0))
          searchBar.addSubview((searchController?.searchBar)!)
          view.addSubview(searchBar)
+         //searchController?.searchBar.isUserInteractionEnabled = true
          searchController?.searchBar.sizeToFit()
          searchController?.hidesNavigationBarDuringPresentation = false
          definesPresentationContext = true
-          
-        definesPresentationContext = true
-        searchController?.hidesNavigationBarDuringPresentation = false
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
         
-        //patrik varijable
-         
-       
         CustomLatitude = place.coordinate.latitude
         CustomLongtitude = place.coordinate.longitude
         
@@ -117,7 +107,7 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
         let searchBar = searchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = place.formattedAddress
-            }
+        }
     
     
     func transitionToHome(){
