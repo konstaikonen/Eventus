@@ -21,6 +21,7 @@ class addEventViewController: UIViewController {
     @IBOutlet weak var startDateAndTime: UITextField!
     var locationTest: String = ""
 
+    @IBOutlet weak var scrollView: UIView!
     
     lazy var datePicker: UIDatePicker = {
         let picker = UIDatePicker()
@@ -40,7 +41,7 @@ class addEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        self.scrollView.backgroundColor = .clear
         //hide keyboard when clickout
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
             view.addGestureRecognizer(tap)
@@ -83,8 +84,8 @@ class addEventViewController: UIViewController {
     */
     
     
-    
     @IBAction func saveButton(_ sender: Any) {
+  
         var eventName = eventNameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let eventDescription = eventDescriptionLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let eventTime = startDateAndTime.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -105,10 +106,6 @@ class addEventViewController: UIViewController {
         }
     }
     
-    @IBAction func saveIt(_ sender: UIBarButtonItem) {
-        
-    }
-    
      func transitionToHome(){
 
            let tabBarViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabBarViewController) as? TabBarViewController
@@ -121,6 +118,7 @@ class addEventViewController: UIViewController {
            //self.performSegue(withIdentifier: "loginToProfile", sender: self)
            
        }
+    
     @IBAction func openMapsButton(_ sender: Any) {
         performSegue(withIdentifier: "goToMaps", sender: self)
     }
@@ -133,7 +131,9 @@ class addEventViewController: UIViewController {
         }
     }
     
+    
     @IBAction func cancelCreateEvent(_ sender: Any) {
+    
         let tabBarViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabBarViewController) as? TabBarViewController
            
            view.window?.rootViewController = tabBarViewController

@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
+
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -18,7 +20,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var trenutniKorisnik = [CurrentUser]()
     var userCollectionRef: CollectionReference!
     let db = Firestore.firestore()
-    
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var usernameEdit: UITextField!
     @IBOutlet weak var firstnameEdit: UITextField!
