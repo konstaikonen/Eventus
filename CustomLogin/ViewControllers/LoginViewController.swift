@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var appLogo: UIImageView!
+    @IBOutlet weak var scrollView: UIView!
     
     //programmatically added
     @IBOutlet var imageView: UIImageView!
@@ -35,7 +36,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         jesiLoginan = true
         super.viewDidLoad()
-        
+        scrollView.backgroundColor = .clear
         //hide keyboard when click out
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
