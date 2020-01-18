@@ -118,4 +118,17 @@ class SignUpViewController: UIViewController {
       
         //self.performSegue(withIdentifier: "loginToProfile", sender: self)
     }
+    
+    //Shake to clear all
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            firstNameTextField.text = ""
+            lastNameTextField.text = ""
+            usernameLabel.text = ""
+            emailTextField.text = ""
+            passwordTextField.text = ""
+            
+        }
+    }
+    
 }

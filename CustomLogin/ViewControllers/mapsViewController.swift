@@ -116,7 +116,9 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
      
      
     func transitionToHome(){
-      dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            
+        }
         
         
            //self.performSegue(withIdentifier: "loginToProfile", sender: self)

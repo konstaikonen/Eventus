@@ -20,6 +20,7 @@ class addEventViewController: UIViewController {
     @IBOutlet weak var hostnameLabel: UILabel!
     @IBOutlet weak var startDateAndTime: UITextField!
     var locationTest: String = ""
+    
     var stringTest : String = ""
 
     @IBOutlet weak var scrollView: UIView!
@@ -49,6 +50,7 @@ class addEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.scrollView.backgroundColor = .clear
         //hide keyboard when clickout
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
@@ -149,6 +151,18 @@ class addEventViewController: UIViewController {
         */
            
         
+    }
+    
+    //Shake to clear all
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            eventNameLabel.text = ""
+            eventDescriptionLabel.text = ""
+            locationLabel.text = ""
+            startDateAndTime.text = ""
+            
+            
+        }
     }
     
 }
