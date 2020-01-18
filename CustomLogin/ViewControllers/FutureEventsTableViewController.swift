@@ -19,10 +19,13 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var likeOutlet: LikeControl!
+    
     var userCollectionRef: CollectionReference!
     var finalName = [String]()
     var futureEvents = [String]()
     var opisArray = [String]()
+    var likeArray = [Int]()
     var datumArray = [String]()
     var selectedRow: Int?
     var myLon = [Double]()
@@ -46,8 +49,9 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
         
         print (testInt)
         futureEvents.removeAll()
+        self.tableView.reloadData()
         mapView.removeAnnotations(mapView.annotations)
-        tableView.reloadData()
+        
         
         
         AppData.shared.removedEvent = ""
@@ -62,6 +66,7 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
                     let data = document.data()
                     let name = data["name"] as? String ?? "Anonymous"
                     let opis = data["description"] as? String ?? "Anonymous"
+                    let like = data["likes"] as? Int ?? 0
                     let hostname = data["username"] as? String ?? "Anonymous"
                     let datum = data["date"] as? String ?? "Anonymous"
                     let adresa = data["adress"] as? String ?? "Anonymous"
@@ -83,12 +88,18 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
                         self.myLat.append(latitude!)
                         self.myLon.append(longitude!)
                         self.myAdress.append(adresa)
+                        self.likeArray.append(like)
+                        AppData.shared.likeArray.append(like)
+
                         print(name)
                         }
                       
                     }
                     
             }
+            
+            
+            
                 //print(self.futureEvents.count)
             
                 //Add annotation pins on map
@@ -153,11 +164,17 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellE", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellE", for: indexPath) as? FutureEventsTableViewCell else {
+            fatalError("not an instance of FutureTableViewCell")
+        }
     
         let(events) = futureEvents [indexPath.row]
-        cell.textLabel?.text = events
-        cell.detailTextLabel?.text = datumArray[indexPath.row]
+        cell.titleLabel?.text = events
+        cell.subtitleLabel?.text = datumArray[indexPath.row]
+        cell.likeOut.eventName = events
+        //Get firebase LikeCount and set to cell.likeOut.counter
+        cell.likeOut.counter = likeArray[indexPath.row]
+        
         
         return cell
  

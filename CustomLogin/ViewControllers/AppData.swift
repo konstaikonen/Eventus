@@ -23,6 +23,8 @@ public class AppData {
     var pomIme: String?
     var pomeDesc: String?
     var pomLoc: String?
+    var helpInt: Int = 0
+    var likeArray = [Int]()
     var removedEvent: String?
     
 }

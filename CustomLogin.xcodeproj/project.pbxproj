@@ -20,6 +20,8 @@
 		2C37660223A29CA800301A03 /* giphy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C37660123A29CA700301A03 /* giphy.mp4 */; };
 		2C3ABCF323747FA100DE7F2C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3ABCF223747FA100DE7F2C /* Constants.swift */; };
 		2C4354B723746D9E00C89D13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C4354B623746D9E00C89D13 /* GoogleService-Info.plist */; };
+		2C87C48E23D3580800A7F84C /* FutureEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C87C48D23D3580800A7F84C /* FutureEventsTableViewCell.swift */; };
+		2C87C49023D35B1E00A7F84C /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C87C48F23D35B1E00A7F84C /* LikeControl.swift */; };
 		2CCE48722397F17200B4024F /* mapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE48712397F17200B4024F /* mapsViewController.swift */; };
 		2CD55C6F238ECC6500040109 /* addEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD55C6E238ECC6500040109 /* addEventViewController.swift */; };
 		2CFF7D56238573DE009CEAE0 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF7D55238573DE009CEAE0 /* CurrentUser.swift */; };
@@ -49,6 +51,8 @@
 		2C37660123A29CA700301A03 /* giphy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = giphy.mp4; sourceTree = SOURCE_ROOT; };
 		2C3ABCF223747FA100DE7F2C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2C4354B623746D9E00C89D13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2C87C48D23D3580800A7F84C /* FutureEventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureEventsTableViewCell.swift; sourceTree = "<group>"; };
+		2C87C48F23D35B1E00A7F84C /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		2CCE48712397F17200B4024F /* mapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapsViewController.swift; sourceTree = "<group>"; };
 		2CD55C6E238ECC6500040109 /* addEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addEventViewController.swift; sourceTree = "<group>"; };
 		2CFF7D55238573DE009CEAE0 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
@@ -122,13 +126,15 @@
 				5A176425237ED11B00F6066B /* PastEventsTableViewController.swift */,
 				2CD55C6E238ECC6500040109 /* addEventViewController.swift */,
 				2C0467FD2374603D0053B6E6 /* AppDelegate.swift */,
-				5A503C1123840C3A0040CAE0 /* FutureEventsTableViewController.swift */,
 				5AFDE69C238418BC009DA24D /* LeaderBoardTableViewController.swift */,
 				5AFDE69E23842072009DA24D /* ProfileViewController.swift */,
 				2CFF7D55238573DE009CEAE0 /* CurrentUser.swift */,
 				2C2E4F752397CE4E00D2E141 /* EditProfileViewController.swift */,
 				2CCE48712397F17200B4024F /* mapsViewController.swift */,
 				2C37660123A29CA700301A03 /* giphy.mp4 */,
+				5A503C1123840C3A0040CAE0 /* FutureEventsTableViewController.swift */,
+				2C87C48D23D3580800A7F84C /* FutureEventsTableViewCell.swift */,
+				2C87C48F23D35B1E00A7F84C /* LikeControl.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -295,6 +301,7 @@
 			files = (
 				5A99BD6D23858727001EB316 /* AppData.swift in Sources */,
 				2CD55C6F238ECC6500040109 /* addEventViewController.swift in Sources */,
+				2C87C49023D35B1E00A7F84C /* LikeControl.swift in Sources */,
 				5A6C7D66237DA5A900890947 /* EventInfoViewController.swift in Sources */,
 				5A99FE4B23749B0F00C08FD1 /* TabBarViewController.swift in Sources */,
 				5A176426237ED11B00F6066B /* PastEventsTableViewController.swift in Sources */,
@@ -303,6 +310,7 @@
 				2C0468022374603D0053B6E6 /* ViewController.swift in Sources */,
 				2C0467FE2374603D0053B6E6 /* AppDelegate.swift in Sources */,
 				2C046812237460A80053B6E6 /* SignUpViewController.swift in Sources */,
+				2C87C48E23D3580800A7F84C /* FutureEventsTableViewCell.swift in Sources */,
 				2C046814237460BA0053B6E6 /* LoginViewController.swift in Sources */,
 				2C2E4F762397CE4E00D2E141 /* EditProfileViewController.swift in Sources */,
 				2C3ABCF323747FA100DE7F2C /* Constants.swift in Sources */,
