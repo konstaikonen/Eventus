@@ -108,7 +108,7 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
         let searchBar = searchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = place.formattedAddress
-
+        
         }
 
 

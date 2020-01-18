@@ -25,6 +25,7 @@ class addEventViewController: UIViewController {
     @IBOutlet weak var scrollView: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
+        locationLabel.reloadInputViews()
         locationLabel.text = AppData.shared.adresa
     }
     

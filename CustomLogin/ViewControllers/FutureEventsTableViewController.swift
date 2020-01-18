@@ -46,6 +46,7 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
         
         print (testInt)
         futureEvents.removeAll()
+        mapView.removeAnnotations(mapView.annotations)
         tableView.reloadData()
         
         
