@@ -111,19 +111,19 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
 
         }
 
+
     
      
      
     func transitionToHome(){
-        dismiss(animated: true, completion: nil)
-
-        /* Cancel and go home old way
-        let nextViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.addEventViewController) as? addEventViewController
-           view.window?.rootViewController = nextViewController
-           view.window?.makeKeyAndVisible()
+      dismiss(animated: true, completion: nil)
+        
+        
            //self.performSegue(withIdentifier: "loginToProfile", sender: self)
-         */
+        
     }
+    
+    
 
     @IBAction func cancelButton(_ sender: Any) {
         transitionToHome()

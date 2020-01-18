@@ -23,5 +23,6 @@ public class AppData {
     var pomIme: String?
     var pomeDesc: String?
     var pomLoc: String?
+    var removedEvent: String?
     
 }

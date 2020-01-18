@@ -137,7 +137,9 @@ class LeaderBoardTableViewController: UITableViewController {
           let alert = UIAlertController(title: "Delete Event?", message: "", preferredStyle: UIAlertController.Style.alert)
           
           alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            AppData.shared.removedEvent = self.myEvents[deleteNumber.row]
             self.myEvents.remove(at: deleteNumber.row)
+            
             self.tableView.deleteRows(at: [deleteNumber], with: .bottom)
             self.db.collection("events").document(self.idArray[deleteNumber.row]).delete()
             print("Deletano je")

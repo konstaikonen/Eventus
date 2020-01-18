@@ -20,8 +20,15 @@ class addEventViewController: UIViewController {
     @IBOutlet weak var hostnameLabel: UILabel!
     @IBOutlet weak var startDateAndTime: UITextField!
     var locationTest: String = ""
+    var stringTest : String = ""
 
     @IBOutlet weak var scrollView: UIView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        locationLabel.text = AppData.shared.adresa
+    }
+    
+   
     
     lazy var datePicker: UIDatePicker = {
         let picker = UIDatePicker()

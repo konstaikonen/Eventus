@@ -28,6 +28,8 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
     var myLon = [Double]()
     var myLat = [Double]()
     var myAdress = [String]()
+    var nothin:Int = 0
+    var testInt: Int = 0
     
     
     
@@ -42,6 +44,12 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
         activityIndicatorView.center = view.center
         activityIndicatorView.startAnimating()
         
+        print (testInt)
+        futureEvents.removeAll()
+        tableView.reloadData()
+        
+        
+        AppData.shared.removedEvent = ""
         userCollectionRef = Firestore.firestore().collection("events")
         userCollectionRef.getDocuments { (snapshot, error) in
         if let error = error{
@@ -64,6 +72,9 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
                     let longitude = data["longitude"] as? Double
                     
                     if datumDateType?.compare(danasnjiDatumDateType!) == .orderedDescending{
+                        if self.futureEvents.contains(name) {
+                            self.nothin = 1
+                        }else{
                         self.futureEvents.append(name)
                         self.finalName.append(hostname)
                         self.opisArray.append(opis)
@@ -72,6 +83,7 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
                         self.myLon.append(longitude!)
                         self.myAdress.append(adresa)
                         print(name)
+                        }
                       
                     }
                     
