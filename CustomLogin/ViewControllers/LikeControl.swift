@@ -75,7 +75,6 @@ import Firebase
         } else {
             //Firebase -> attribute like - 1
             like = false
-            //button.backgroundColor = UIColor.white
             button.setImage(emptyLike, for: .normal)
             db.collection("events").whereField("name", isEqualTo: eventName).getDocuments(){ (snapshot, error) in
             if let error = error{
@@ -92,7 +91,7 @@ import Firebase
                 }
                 }
             }
-            count.text = String( counter )
+            //count.text = String( counter )
         }
     }
     
@@ -100,7 +99,7 @@ import Firebase
     
     func setupButton(){
         
-        //Getting actual like of events
+        /*Getting actual like of events
         db.collection("events").whereField("name", isEqualTo: eventName).getDocuments(){ (snapshot, error) in
         if let error = error{
             debugPrint("Eror se vraca")
@@ -111,14 +110,14 @@ import Firebase
                         var like = data["likes"] as? Int ?? 0
             }
         }
-        }
+        }*/
         
         button.setImage(emptyLike, for: .normal)
         button.setImage(fullLike, for: .selected)
         button.setImage(fullLike, for: .highlighted)
         
         //Setting label to actual like count pull from DB
-        count.text = String ( like )
+        //count.text = String ( like )
         addArrangedSubview(count)
         
         //Constraints
