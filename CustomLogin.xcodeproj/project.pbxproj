@@ -36,7 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C0467FA2374603D0053B6E6 /* CustomLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C0467FA2374603D0053B6E6 /* Eventus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C0467FD2374603D0053B6E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C0467FF2374603D0053B6E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2C0468012374603D0053B6E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		2C0467FB2374603D0053B6E6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C0467FA2374603D0053B6E6 /* CustomLogin.app */,
+				2C0467FA2374603D0053B6E6 /* Eventus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 			);
 			name = CustomLogin;
 			productName = CustomLogin;
-			productReference = 2C0467FA2374603D0053B6E6 /* CustomLogin.app */;
+			productReference = 2C0467FA2374603D0053B6E6 /* Eventus.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -473,7 +473,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Patrik.CustomLogin;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Eventus;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -495,7 +495,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Patrik.CustomLogin;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Eventus;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

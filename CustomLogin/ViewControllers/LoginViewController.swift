@@ -26,10 +26,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var appLogo: UIImageView!
     @IBOutlet weak var scrollView: UIView!
-    
-    //programmatically added
-    @IBOutlet var imageView: UIImageView!
-    
+        
     var jesiLoginan :Bool?
     var userCollectionRef: CollectionReference!
     
@@ -45,16 +42,6 @@ class LoginViewController: UIViewController {
         
         self.loginButton.layer.cornerRadius = 4
         self.signupButton.layer.cornerRadius = 4
-        
-      
-        //logo for horizontal view
-        let imageName = "applicationImage.png"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image!)
-        self.imageView = UIImageView()
-        imageView.frame = CGRect(x: 400, y: -20, width: 100, height: 100)
-        view.addSubview(imageView)
-        self.imageView.isHidden = true
         
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
@@ -83,17 +70,14 @@ class LoginViewController: UIViewController {
         
     }
     
-    
     func landscape() {
         avPlayerLayer.isHidden = true
         view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
         self.appLogo.isHidden = true
-        self.imageView.isHidden = false
     }
     
     func portrait() {
         self.appLogo.isHidden = false
-        self.imageView.isHidden = true
         view.backgroundColor = .clear
         avPlayerLayer.isHidden = false
     }
