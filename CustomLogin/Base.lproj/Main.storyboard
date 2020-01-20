@@ -497,8 +497,11 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RP3-sv-yF5">
-                                                <rect key="frame" x="112.5" y="216" width="150" height="30"/>
-                                                <state key="normal" title="Click photo to change"/>
+                                                <rect key="frame" x="152" y="216" width="71" height="30"/>
+                                                <state key="normal" title="Edit photo"/>
+                                                <connections>
+                                                    <action selector="selectImageFromLibrary:" destination="6Ob-76-Bet" eventType="touchUpInside" id="PUy-kT-Wx3"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -553,6 +556,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="600"/>
                     <connections>
+                        <outlet property="clickToChange" destination="RP3-sv-yF5" id="YxZ-OX-Rab"/>
                         <outlet property="emailEdit" destination="Eq7-wK-qwE" id="Rc0-mP-dAP"/>
                         <outlet property="firstnameEdit" destination="gNm-Zg-Nb0" id="fvY-Fj-1OZ"/>
                         <outlet property="lastnameEdit" destination="w2q-3Q-1k0" id="rbo-lR-Cbr"/>
@@ -600,14 +604,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" image="event" translatesAutoresizingMaskIntoConstraints="NO" id="d9g-Ad-yUr">
-                                <rect key="frame" x="12.5" y="44" width="350" height="229"/>
+                                <rect key="frame" x="-2.5" y="44" width="380" height="229"/>
                                 <color key="backgroundColor" red="0.21685737371444702" green="0.58646887540817261" blue="0.51364028453826904" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="229" id="IkJ-ma-0xH">
                                         <variation key="heightClass=compact" constant="70"/>
                                     </constraint>
-                                    <constraint firstAttribute="width" constant="350" id="PmC-kg-mT5">
+                                    <constraint firstAttribute="width" constant="380" id="PmC-kg-mT5">
                                         <variation key="heightClass=compact" constant="70"/>
                                     </constraint>
                                 </constraints>
@@ -979,24 +983,24 @@
                                     <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnQ-F3-MVb">
-                                            <rect key="frame" x="16" y="0.0" width="154" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1m-lh-NHD">
-                                            <rect key="frame" x="16" y="22" width="154" height="21"/>
+                                            <rect key="frame" x="16" y="22" width="238" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.92868429419999998" green="0.96228104830000005" blue="0.88332492110000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9LJ-Ce-p27" customClass="LikeControl" customModule="CustomLogin" customModuleProvider="target">
                                             <rect key="frame" x="262" y="0.0" width="62" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnQ-F3-MVb">
+                                            <rect key="frame" x="16" y="0.0" width="238" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.92868429419999998" green="0.96228104830000005" blue="0.88332492110000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.33725490196078434" green="0.30980392156862746" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

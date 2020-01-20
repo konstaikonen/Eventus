@@ -36,6 +36,7 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
     
     
     
+    
     override func viewWillAppear(_ animated: Bool) {
         //set background color
         view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
