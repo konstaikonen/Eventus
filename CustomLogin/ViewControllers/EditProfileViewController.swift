@@ -35,23 +35,25 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        db.collection("users").whereField("uid",isEqualTo: CurrentUser.shared.uid).getDocuments(){ (snapshot, error) in
-        if let error = error{
-            debugPrint("Eror se vraca")
-        }else{
-            let document = snapshot!.documents.first?.reference.updateData(["firstname": self.firstnameEdit.text])
-            let document1 = snapshot!.documents.first?.reference.updateData(["lastname": self.lastnameEdit.text])
-            let document2 = snapshot!.documents.first?.reference.updateData(["username": self.usernameEdit.text])
-            let document3 = snapshot!.documents.first?.reference.updateData(["email": self.emailEdit.text])
-            }
-        }
-        CurrentUser.shared.name = self.firstnameEdit.text
-        CurrentUser.shared.surname = self.lastnameEdit.text
-        CurrentUser.shared.profileEmail = self.emailEdit.text
-        CurrentUser.shared.profileUsername = self.usernameEdit.text
+        
         let alert = UIAlertController(title: "Are you sure you want to save changes?", message: "", preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            self.db.collection("users").whereField("uid",isEqualTo: CurrentUser.shared.uid).getDocuments(){ (snapshot, error) in
+            if let error = error{
+                debugPrint("Eror se vraca")
+            }else{
+                let document = snapshot!.documents.first?.reference.updateData(["firstname": self.firstnameEdit.text])
+                let document1 = snapshot!.documents.first?.reference.updateData(["lastname": self.lastnameEdit.text])
+                let document2 = snapshot!.documents.first?.reference.updateData(["username": self.usernameEdit.text])
+                let document3 = snapshot!.documents.first?.reference.updateData(["email": self.emailEdit.text])
+                }
+            }
+            CurrentUser.shared.name = self.firstnameEdit.text
+            CurrentUser.shared.surname = self.lastnameEdit.text
+            CurrentUser.shared.profileEmail = self.emailEdit.text
+            CurrentUser.shared.profileUsername = self.usernameEdit.text
+            self.transitionToHome()
         }
         ))
         
@@ -60,7 +62,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         ))
         
         self.present(alert, animated: true, completion: nil)
-        transitionToHome()
+        
     }
     
     override func viewDidLoad() {
