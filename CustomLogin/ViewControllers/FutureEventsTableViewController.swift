@@ -35,8 +35,7 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
     var myAdress = [String]()
     var nothin:Int = 0
     var testInt: Int = 0
-    
-    
+
     
     
     override func viewWillAppear(_ animated: Bool) {

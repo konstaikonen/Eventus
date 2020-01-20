@@ -122,11 +122,7 @@ class addEventViewController: UIViewController {
            
            view.window?.rootViewController = tabBarViewController
            view.window?.makeKeyAndVisible()
-    
-           
-           
            //self.performSegue(withIdentifier: "loginToProfile", sender: self)
-           
        }
     
     @IBAction func openMapsButton(_ sender: Any) {
@@ -141,7 +137,6 @@ class addEventViewController: UIViewController {
         }
     }
     
-    
     @IBAction func cancelCreateEvent(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         /*
@@ -149,8 +144,6 @@ class addEventViewController: UIViewController {
            view.window?.rootViewController = tabBarViewController
            view.window?.makeKeyAndVisible()
         */
-           
-        
     }
     
     //Shake to clear all
@@ -160,9 +153,6 @@ class addEventViewController: UIViewController {
             eventDescriptionLabel.text = ""
             locationLabel.text = ""
             startDateAndTime.text = ""
-            
-            
         }
     }
-    
 }
