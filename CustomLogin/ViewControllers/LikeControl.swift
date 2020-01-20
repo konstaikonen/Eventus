@@ -65,6 +65,7 @@ import Firebase
                             let data = document.data()
                             var like = data["likes"] as? Int ?? 0
                 like = like+1
+                            AppData.shared.tappedLike = like
                 let document = snapshot!.documents.first?.reference.updateData(["likes":like])
                 self.counter = like
                 }

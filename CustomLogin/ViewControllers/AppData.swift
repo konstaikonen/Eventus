@@ -26,5 +26,6 @@ public class AppData {
     var helpInt: Int = 0
     var likeArray = [Int]()
     var removedEvent: String?
+    var tappedLike: Int?
     
 }

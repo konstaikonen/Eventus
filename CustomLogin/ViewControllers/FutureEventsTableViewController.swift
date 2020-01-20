@@ -21,7 +21,9 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
     
     @IBOutlet weak var likeOutlet: LikeControl!
     
+    
     var userCollectionRef: CollectionReference!
+    let db = Firestore.firestore()
     var finalName = [String]()
     var futureEvents = [String]()
     var opisArray = [String]()
@@ -174,9 +176,21 @@ class FutureEventsTableViewController: UITableViewController, MKMapViewDelegate 
         cell.subtitleLabel?.text = datumArray[indexPath.row]
         cell.likeOut.eventName = events
         //Get firebase LikeCount and set to cell.likeOut.counter
-        cell.likeOut.counter = likeArray[indexPath.row]
         
         
+        db.collection("events").whereField("name", isEqualTo: events).getDocuments(){ (snapshot, error) in
+        if let error = error{
+            debugPrint("Eror se vraca")
+        }else{
+            guard let snap = snapshot else { return }
+                       for document in snap.documents{
+                                   
+                        let data = document.data()
+                        var like = data["likes"] as? Int ?? 0
+                        cell.likeOut.counter = like
+            }
+            }
+        }
         return cell
  
     }
