@@ -58,14 +58,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         
-        //logo to nav bar
-        _ = self.navigationController?.navigationBar
-               let logo = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-               logo.contentMode = .scaleAspectFit
-               let image = UIImage(named: "applicationImage")
-               logo.image = image
-               navigationItem.titleView = logo
-        
         //background
         view.backgroundColor = UIColor(red: 45/255, green: 40/255, blue: 62/255, alpha: 1.0)
         
@@ -79,6 +71,5 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.firstnameLabel.text = CurrentUser.shared.name
         self.usernameLabel.text = CurrentUser.shared.profileUsername
         self.lastnameLabel.text = CurrentUser.shared.surname
-                
     }
 }

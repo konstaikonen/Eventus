@@ -76,7 +76,7 @@ class mapsViewController: UIViewController, CLLocationManagerDelegate, GMSAutoco
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.searchResultsUpdater = resultsViewController
         
-         let searchBar = UIView(frame: CGRect(x: 0, y: 45.0, width: 350.0, height: 45.0))
+         let searchBar = UIView(frame: CGRect(x: 0, y: 43.0, width: 350.0, height: 45.0))
          searchBar.addSubview((searchController?.searchBar)!)
          view.addSubview(searchBar)
          //searchController?.searchBar.isUserInteractionEnabled = true
