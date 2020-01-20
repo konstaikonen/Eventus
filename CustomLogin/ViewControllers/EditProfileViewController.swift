@@ -26,6 +26,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var lastnameEdit: UITextField!
     @IBOutlet weak var emailEdit: UITextField!
     @IBOutlet weak var scrollView: UIView!
+    @IBOutlet weak var clickToChange: UIButton!
+    
     
     @IBAction func closeEdit(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -103,21 +105,25 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     //change user photo
     
     //MARK: Actions
- 
-    
-   
+    //open gallery from text
+    @IBAction func selectImageFromLibrary(_ sender: Any) {
+        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
+        let imagePickerController = UIImagePickerController()
+        // Only allow photos to be picked, not taken.
+        imagePickerController.sourceType = .photoLibrary
+        // Make sure ViewController is notified when the user picks an image.
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+        
+    }
+    //open gallery from photo
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
-    
-    
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
            let imagePickerController = UIImagePickerController()
-        
            // Only allow photos to be picked, not taken.
            imagePickerController.sourceType = .photoLibrary
-           
            // Make sure ViewController is notified when the user picks an image.
            imagePickerController.delegate = self
-           
            present(imagePickerController, animated: true, completion: nil)
     }
     
