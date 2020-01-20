@@ -29,12 +29,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func logoutButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Are you sure you want to log out?", message: "", preferredStyle: UIAlertController.Style.alert)
-        CurrentUser.shared.name = ""
-        CurrentUser.shared.profileEmail = ""
-        CurrentUser.shared.surname = ""
-        CurrentUser.shared.profileUsername = ""
+        
         
         alert.addAction(UIAlertAction(title: "Log out", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            CurrentUser.shared.name = ""
+            CurrentUser.shared.profileEmail = ""
+            CurrentUser.shared.surname = ""
+            CurrentUser.shared.profileUsername = ""
             self.performSegue(withIdentifier: "logOut", sender: self)
             
             
